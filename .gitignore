@@ -1,0 +1,25 @@
+# dependencies
+node_modules/
+.pnpm-store/
+
+# Next.js
+.next/
+out/
+
+# env — never commit real values
+.env.local
+.env.*.local
+
+# system
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/settings.json
+.idea/
+
+# pnpm
+.pnpmfile.cjs
+
+# TypeScript incremental build info
+tsconfig.tsbuildinfo

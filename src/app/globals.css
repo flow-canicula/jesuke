@@ -1,0 +1,173 @@
+@import 'tailwindcss';
+
+/* ─── Self-hosted fonts ──────────────────────────────────────────────────── */
+/* Anton OFL — display / headlines */
+@font-face {
+  font-family: 'Anton';
+  src: url('/fonts/Anton-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Inter variable OFL — body */
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter-Variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* JetBrains Mono OFL — utility / catalogue data */
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/fonts/JetBrainsMono-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ─── Design tokens ──────────────────────────────────────────────────────── */
+@theme {
+  /* Ink register — gallery, hero */
+  --color-ink-900: #0b0b0d;
+  --color-ink-800: #141417;
+  --color-ink-700: #1d1d22;
+  --color-ink-100: #b9b7b0;
+
+  /* Paper register — story, about, forms */
+  --color-paper-50:  #efece3;
+  --color-paper-100: #e4e0d4;
+  --color-paper-700: #3a3a33;
+
+  /* Seal — ONLY for the hanko mark */
+  --color-seal: #b23a2e;
+
+  /* Lines & tone */
+  --color-line: rgba(255 255 255 / 0.10);
+  --color-tone: rgba(255 255 255 / 0.06);
+
+  /* Typography */
+  --font-display: 'Anton', ui-sans-serif, system-ui, sans-serif;
+  --font-body:    'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-mono:    'JetBrains Mono', ui-monospace, monospace;
+
+  /* Type scale (rem) */
+  --font-size-2xs: 0.75rem;
+  --font-size-xs:  0.875rem;
+  --font-size-sm:  1rem;
+  --font-size-md:  1.25rem;
+  --font-size-lg:  1.5rem;
+  --font-size-xl:  2rem;
+  --font-size-2xl: 3rem;
+  --font-size-3xl: 4.5rem;
+  --font-size-4xl: 6.5rem;
+}
+
+/* ─── Base layer ─────────────────────────────────────────────────────────── */
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    font-family: var(--font-body);
+    background-color: var(--color-ink-900);
+    color: var(--color-ink-100);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    min-height: 100dvh;
+  }
+
+  /* Visible focus ring — never hidden */
+  :focus-visible {
+    outline: 2px solid var(--color-ink-100);
+    outline-offset: 3px;
+  }
+
+  /* Headings use display font */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+  }
+}
+
+/* ─── Screentone / halftone dot texture ─────────────────────────────────── */
+@layer utilities {
+  .screentone {
+    background-image: radial-gradient(
+      circle,
+      var(--color-tone) 1px,
+      transparent 1px
+    );
+    background-size: 12px 12px;
+  }
+
+  /* Mono eyebrow label */
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-2xs);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+  }
+
+  /* Ink-bleed hero reveal */
+  .reveal-ink {
+    animation: ink-bleed 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  @keyframes ink-bleed {
+    from {
+      opacity: 0;
+      transform: translateY(14px);
+      filter: blur(4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+  }
+
+  /* Scroll-reveal */
+  .reveal {
+    animation: fade-rise 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  @keyframes fade-rise {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Hairline divider on dark */
+  .hairline {
+    border-color: var(--color-line);
+  }
+}

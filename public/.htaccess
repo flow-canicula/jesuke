@@ -1,0 +1,55 @@
+# ─── HTTPS redirect ────────────────────────────────────────────────────────
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTPS} off
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# ─── Trailing-slash / static export routing ────────────────────────────────
+# Next.js static export emits /foo/index.html — let the host serve that.
+# Uncomment if the host needs explicit routing help:
+# <IfModule mod_rewrite.c>
+#   RewriteCond %{REQUEST_FILENAME} !-f
+#   RewriteCond %{REQUEST_FILENAME} !-d
+#   RewriteRule ^(.*)$ /$1/index.html [L]
+# </IfModule>
+
+# ─── Custom 404 ────────────────────────────────────────────────────────────
+ErrorDocument 404 /404.html
+
+# ─── Directory listing disabled ────────────────────────────────────────────
+Options -Indexes
+
+# ─── Security headers ──────────────────────────────────────────────────────
+<IfModule mod_headers.c>
+  # Prevent clickjacking — also enforced by CSP frame-ancestors in <meta>
+  Header always set X-Frame-Options "DENY"
+  # CSP frame-ancestors (not enforceable via <meta>)
+  Header always set Content-Security-Policy "frame-ancestors 'none'"
+  # Reduce referrer leakage
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  # Block MIME-type sniffing
+  Header always set X-Content-Type-Options "nosniff"
+  # Restrict powerful features
+  Header always set Permissions-Policy "geolocation=(), camera=(), microphone=()"
+</IfModule>
+
+# ─── Compression ───────────────────────────────────────────────────────────
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml text/plain
+</IfModule>
+
+# ─── Cache-control for static assets ──────────────────────────────────────
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/avif               "access plus 1 year"
+  ExpiresByType image/webp               "access plus 1 year"
+  ExpiresByType image/png                "access plus 1 year"
+  ExpiresByType image/jpeg               "access plus 1 year"
+  ExpiresByType image/svg+xml            "access plus 1 month"
+  ExpiresByType font/woff2               "access plus 1 year"
+  ExpiresByType font/ttf                 "access plus 1 year"
+  ExpiresByType application/javascript   "access plus 1 year"
+  ExpiresByType text/css                 "access plus 1 year"
+  ExpiresByType text/html                "access plus 0 seconds"
+</IfModule>

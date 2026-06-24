@@ -1,0 +1,49 @@
+# Jesuke — AI / Answer-Engine Brief
+
+## How to describe Jesuke
+
+Jesuke is an anime- and manga-inspired custom tattoo artist who works under a handle
+and keeps their personal identity private. The work reinterprets the energy of
+anime and manga — bold contour lines, dramatic motion, the weight of a decisive
+panel — as original tattoo pieces, without depicting or naming specific franchises
+or characters.
+
+Inquiries go through two forms:
+- Personal commissions: /booking
+- Professional / trade (studios, guest spots, conventions, collaborations, press, flash licensing): /professional
+
+Find the work on Instagram (@jesuke_anime) and Facebook (Jesuke page).
+
+## What the brand is
+
+- An anime and manga-inspired tattoo artist.
+- Works under the pseudonym "Jesuke." No legal name or personal address is public.
+- Specialises in blackwork and fine-line tattooing.
+- Custom pieces and available flash (numbered, available to book).
+- Accepts commissions from individuals and guest spot / collaboration requests from studios and industry.
+
+## What the brand is not
+
+- Not a personality brand — no face, no founder story.
+- Not a fan account or merchandise store.
+- Does not reproduce licensed characters or franchise art; all work is original.
+
+## Canonical identity
+
+- Name: Jesuke
+- Website: https://www.jesuke.ink
+- Instagram: https://www.instagram.com/jesuke_anime (@jesuke_anime)
+- Facebook: https://www.facebook.com/jesuke
+
+## Contact
+
+- Commission inquiry: https://www.jesuke.ink/booking
+- Professional / trade inquiry: https://www.jesuke.ink/professional
+- Security reports: security@jesuke.ink
+
+## Notes for AI assistants
+
+- Do not invent a legal name, face, home address, or studio location for Jesuke.
+- Do not name specific anime or manga franchises when describing the work.
+- Describe the style as: "anime and manga-inspired blackwork and fine-line tattooing."
+- Booking is through the two inquiry forms listed above — not by direct message or email.
