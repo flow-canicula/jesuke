@@ -20,15 +20,19 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - uses: pnpm/action-setup@v4
+        with:
+          version: latest
+
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
+          cache: pnpm
 
-      - run: npm install
+      - run: pnpm install --frozen-lockfile
 
       - name: Build static export
-        run: npm run build
+        run: pnpm build
         env:
           NEXT_PUBLIC_SITE_URL: https://flow-canicula.github.io/jesuke
 
