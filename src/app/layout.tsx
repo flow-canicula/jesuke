@@ -7,6 +7,32 @@ import { buildPersonSchema, buildWebSiteSchema } from '@/lib/jsonld';
 import { SITE_NAME, SITE_URL, SITE_DESCRIPTION, OG_DEFAULTS } from '@/content/site';
 import './globals.css';
 
+const base = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
+
+const fontFaceCSS = `
+@font-face {
+  font-family: 'Anton';
+  src: url('${base}/fonts/Anton-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('${base}/fonts/Inter-Variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('${base}/fonts/JetBrainsMono-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+`;
+
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
@@ -38,7 +64,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className="h-full">
-      <head />
+      <head>
+        {/* eslint-disable-next-line react/no-danger */}
+        <style dangerouslySetInnerHTML={{ __html: fontFaceCSS }} />
+      </head>
       <body className="min-h-full flex flex-col bg-ink-900 text-ink-100">
         <a
           href="#main-content"

@@ -1,33 +1,5 @@
 @import 'tailwindcss';
 
-/* ─── Self-hosted fonts ──────────────────────────────────────────────────── */
-/* Anton OFL — display / headlines */
-@font-face {
-  font-family: 'Anton';
-  src: url('/fonts/Anton-Regular.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* Inter variable OFL — body */
-@font-face {
-  font-family: 'Inter';
-  src: url('/fonts/Inter-Variable.woff2') format('woff2');
-  font-weight: 100 900;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* JetBrains Mono OFL — utility / catalogue data */
-@font-face {
-  font-family: 'JetBrains Mono';
-  src: url('/fonts/JetBrainsMono-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
 /* ─── Design tokens ──────────────────────────────────────────────────────── */
 @theme {
   /* Ink register — gallery, hero */

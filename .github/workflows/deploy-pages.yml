@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [master]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -35,6 +35,7 @@ jobs:
         run: pnpm build
         env:
           NEXT_PUBLIC_SITE_URL: https://flow-canicula.github.io/jesuke
+          NEXT_PUBLIC_BASE_PATH: /jesuke
 
       - uses: actions/upload-pages-artifact@v3
         with:
