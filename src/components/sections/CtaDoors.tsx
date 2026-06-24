@@ -1,37 +1,71 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export function CtaDoors() {
   return (
     <section
-      className="section-paper py-20 md:py-28 screentone"
+      className="relative overflow-hidden"
       aria-labelledby="cta-heading"
+      style={{ minHeight: '80vh' }}
     >
-      <div className="max-w-6xl mx-auto px-6">
+      {/* Full-bleed background photo */}
+      <div className="absolute inset-0">
+        <Image
+          src="/work/ragnarok-series/ragnarok-003.jpg"
+          alt=""
+          fill
+          className="object-cover object-center"
+          aria-hidden="true"
+        />
+        {/* Dark ink wash over the whole section */}
+        <div
+          className="absolute inset-0"
+          style={{ background: 'rgba(11,11,13,0.82)' }}
+          aria-hidden="true"
+        />
+        <div className="absolute inset-0 screentone opacity-25 pointer-events-none" aria-hidden="true" />
+      </div>
+
+      {/* Content */}
+      <div className="relative z-10 max-w-6xl mx-auto px-6 py-24 md:py-36">
         <h2
           id="cta-heading"
-          className="text-[clamp(1.5rem,4vw,3rem)] font-display text-paper-700 leading-tight mb-14"
+          className="font-display leading-tight mb-20"
+          style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', color: 'var(--color-paper-50)' }}
         >
           Two ways in.
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-paper-100">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {/* Door A — Commission */}
-          <div className="bg-paper-50 p-10 flex flex-col justify-between gap-8">
+          <div
+            className="p-10 md:p-14 flex flex-col justify-between gap-12 border"
+            style={{
+              background: 'rgba(11,11,13,0.6)',
+              borderColor: 'rgba(185,183,176,0.12)',
+              backdropFilter: 'blur(8px)',
+              WebkitBackdropFilter: 'blur(8px)',
+              minHeight: '380px',
+            }}
+          >
             <div>
-              <p className="eyebrow text-paper-700 opacity-40 mb-4">
+              <p className="eyebrow mb-5" style={{ color: 'var(--color-ink-100)', opacity: 0.45 }}>
                 Personal commission
               </p>
-              <h3 className="font-display text-paper-700 text-2xl mb-4">
+              <h3
+                className="font-display mb-5"
+                style={{ fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)', color: 'var(--color-paper-50)' }}
+              >
                 A piece for you.
               </h3>
-              <p className="text-paper-700 opacity-70 text-sm leading-relaxed max-w-xs">
-                You have an idea — a feeling, a placement, a reference you can
-                describe. This form gets it to the right place.
+              <p className="text-sm leading-relaxed max-w-xs" style={{ color: 'var(--color-ink-100)', opacity: 0.65 }}>
+                Anime, manga, or manhwa subjects only. Describe the mood, the placement, the feeling.
               </p>
             </div>
             <Link
               href="/booking"
-              className="self-start inline-flex items-center gap-3 bg-ink-900 text-paper-50 px-8 py-4 text-sm font-body tracking-wide hover:bg-ink-800 transition-colors"
+              className="self-start inline-flex items-center gap-3 px-8 py-4 text-sm font-body tracking-wide transition-opacity hover:opacity-80"
+              style={{ background: 'var(--color-paper-50)', color: 'var(--color-ink-900)' }}
             >
               Commission inquiry
               <span aria-hidden="true">→</span>
@@ -39,22 +73,38 @@ export function CtaDoors() {
           </div>
 
           {/* Door B — Professional */}
-          <div className="bg-paper-100 p-10 flex flex-col justify-between gap-8">
+          <div
+            className="p-10 md:p-14 flex flex-col justify-between gap-12 border"
+            style={{
+              background: 'rgba(239,236,227,0.08)',
+              borderColor: 'rgba(185,183,176,0.15)',
+              backdropFilter: 'blur(8px)',
+              WebkitBackdropFilter: 'blur(8px)',
+              minHeight: '380px',
+            }}
+          >
             <div>
-              <p className="eyebrow text-paper-700 opacity-40 mb-4">
+              <p className="eyebrow mb-5" style={{ color: 'var(--color-ink-100)', opacity: 0.45 }}>
                 Professional / trade
               </p>
-              <h3 className="font-display text-paper-700 text-2xl mb-4">
+              <h3
+                className="font-display mb-5"
+                style={{ fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)', color: 'var(--color-paper-50)' }}
+              >
                 Work together.
               </h3>
-              <p className="text-paper-700 opacity-70 text-sm leading-relaxed max-w-xs">
-                Studios, conventions, collaborations, press, flash licensing.
-                Different door, different conversation.
+              <p className="text-sm leading-relaxed max-w-xs" style={{ color: 'var(--color-ink-100)', opacity: 0.65 }}>
+                Studios, collaborations, and trade arrangements.
+                A different door, a different conversation.
               </p>
             </div>
             <Link
               href="/professional"
-              className="self-start inline-flex items-center gap-3 border border-paper-700/30 text-paper-700 px-8 py-4 text-sm font-body tracking-wide hover:border-paper-700/60 transition-colors"
+              className="self-start inline-flex items-center gap-3 px-8 py-4 text-sm font-body tracking-wide transition-opacity hover:opacity-80"
+              style={{
+                border: '1px solid rgba(185,183,176,0.3)',
+                color: 'var(--color-paper-50)',
+              }}
             >
               Professional inquiry
               <span aria-hidden="true">→</span>

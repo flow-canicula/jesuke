@@ -1,0 +1,217 @@
+{
+  "nav": {
+    "work": "Work",
+    "commission": "Commission",
+    "professional": "Professional"
+  },
+  "hero": {
+    "eyebrow": "Anime · Manga · Manhwa",
+    "location": "🇵🇭 Philippines",
+    "headline1": "Lines borrowed",
+    "headline2": "from the page,",
+    "headline3": "set in ink.",
+    "body": "Anime, manga, and manhwa tattoos only. Blackwork, fine-line, and restrained color — no portrait styles, no other subjects.",
+    "cta": "Commission a piece",
+    "ctaSecondary": "See all work →"
+  },
+  "manifesto": {
+    "eyebrow": "The practice",
+    "headline": "Anime, manga, and manhwa only — original work, in skin.",
+    "headlineAccent": "original work,",
+    "body1": "Every piece drawn from the same energy as the art form itself — bold contour lines, dramatic motion, the weight of a decisive panel. Jesuke only does anime, manga, and manhwa tattoos. No other styles. No exceptions.",
+    "body2": "Based in Bulacan, Philippines. Working under the handle Jesuke — no name on the door, no face on the feed. What there is: the work, a clear point of view, and one way to reach out.",
+    "body3": "Blackwork, fine-line, and restrained color — not portrait style. Single sessions to multi-session builds. Custom pieces and available flash."
+  },
+  "flashIndex": {
+    "eyebrow": "Selected work",
+    "heading": "The work.",
+    "catalogueLink": "Full catalogue →"
+  },
+  "process": {
+    "eyebrow": "How it works",
+    "heading": "From inquiry to healed ink.",
+    "steps": [
+      {
+        "n": "01",
+        "title": "Inquiry",
+        "body": "Send a commission inquiry with your idea, size, and placement. No full brief needed — a direction is enough to start."
+      },
+      {
+        "n": "02",
+        "title": "Consult",
+        "body": "We align on concept, style weight, and session estimate. A deposit secures your slot and covers drawing time."
+      },
+      {
+        "n": "03",
+        "title": "Stencil",
+        "body": "The design is drawn to fit your anatomy. You review the stencil placement before any ink touches skin."
+      },
+      {
+        "n": "04",
+        "title": "Session",
+        "body": "Single-session blackwork up to a forearm. Larger builds are split across sessions with healing time in between."
+      },
+      {
+        "n": "05",
+        "title": "Aftercare",
+        "body": "A full aftercare sheet at the end of every session. Two to four weeks for the ink to settle. Touch-ups handled if needed."
+      }
+    ]
+  },
+  "faq": {
+    "eyebrow": "Questions",
+    "heading": "Common questions."
+  },
+  "ctaDoors": {
+    "heading": "Two ways in.",
+    "commission": {
+      "eyebrow": "Personal commission",
+      "heading": "A piece for you.",
+      "body": "Anime, manga, or manhwa subjects only. Describe the mood, the placement, the feeling.",
+      "cta": "Commission inquiry →"
+    },
+    "professional": {
+      "eyebrow": "Professional / trade",
+      "heading": "Work together.",
+      "body": "Collaborations, licensing, press, and other professional arrangements. A different door, a different conversation.",
+      "cta": "Professional inquiry →"
+    }
+  },
+  "footer": {
+    "signature": "Signed, Jesuke.",
+    "instagram": "Instagram",
+    "facebook": "Facebook",
+    "privacy": "Privacy",
+    "rights": "© {year} Jesuke"
+  },
+  "work": {
+    "eyebrow": "Flash catalogue",
+    "heading": "All work."
+  },
+  "booking": {
+    "eyebrow": "Personal commission",
+    "heading": "Commission a piece.",
+    "body": "Anime, manga, and manhwa subjects only — no other styles. Blackwork, fine-line, and restrained color accepted; no portrait style. Describe your idea: a direction, a mood, a placement. No finished brief needed.",
+    "rules": [
+      "Anime, manga, and manhwa only",
+      "Blackwork, fine-line, and restrained color — no portrait style",
+      "Custom pieces and available flash",
+      "Deposit required to secure a slot",
+      "Bulacan, Philippines — local and visiting clients welcome"
+    ]
+  },
+  "bookingThanks": {
+    "eyebrow": "Commission inquiry",
+    "heading": "Inquiry sent.",
+    "body": "It went through. You will hear back within a week if the project is a fit — check your inbox, including the spam folder.",
+    "note": "No reply after a week means the slot is full or the brief is not a match for this season.",
+    "back": "← Back to the work"
+  },
+  "professional": {
+    "eyebrow": "Professional / trade",
+    "heading": "Work together.",
+    "body": "For collaborators, licensing enquiries, press, and other professional arrangements. All sessions are in Bulacan, Philippines — no travel. Use this form, not the commission form.",
+    "items": [
+      "Artist collaborations",
+      "Flash licensing",
+      "Press and editorial",
+      "Other professional arrangements"
+    ]
+  },
+  "professionalThanks": {
+    "eyebrow": "Professional inquiry",
+    "heading": "Inquiry sent.",
+    "body": "Professional inquiries are reviewed and responded to directly — expect to hear back within a few days.",
+    "note": "If the inquiry is time-sensitive, note that in your message.",
+    "back": "← Back to the work"
+  },
+  "privacy": {
+    "eyebrow": "Legal",
+    "heading": "Privacy.",
+    "back": "← Jesuke",
+    "lastUpdated": "Last updated {year}",
+    "sections": [
+      {
+        "title": "What we collect",
+        "body": "This site collects only what you voluntarily submit through the two contact forms — a commission inquiry (name, contact, idea, size, placement, budget, availability, and optional reference links) or a professional inquiry (name, organisation, role, inquiry type, dates, and message)."
+      },
+      {
+        "title": "How it is used",
+        "body": "Submissions are transmitted directly from your browser to Formspree (TLS-encrypted), forwarded to the artist's inbox, and stored in the Formspree dashboard. This site does not process, store, or log submitted data."
+      },
+      {
+        "title": "Third parties",
+        "body": "Data is not sold or shared with third parties beyond Formspree for routing and delivery. No analytics cookies are set. No social embeds run on this site."
+      },
+      {
+        "title": "Your rights",
+        "body": "You may request access, correction, or deletion of any data you have submitted by emailing security@jesuke.ink. Published client photos are removed on request."
+      },
+      {
+        "title": "Photo consent",
+        "body": "Photographs of client tattoos are published only with the client's express consent, recorded at the time of the commission consult."
+      }
+    ]
+  },
+  "notFound": {
+    "eyebrow": "404",
+    "heading": "Nothing here.",
+    "body": "The page you are looking for does not exist, or has moved. The work is still there.",
+    "back": "← Back to the work"
+  },
+  "forms": {
+    "commission": {
+      "label": "Commission inquiry",
+      "name": "Name",
+      "email": "Email",
+      "handle": "Instagram / messaging handle (optional)",
+      "idea": "Describe your idea",
+      "ideaHint": "Anime, manga, and manhwa subjects only. Blackwork, fine-line, or restrained color — no portrait style. Describe the mood and feel; no need to name a specific title or character.",
+      "size": "Approximate size",
+      "sizePlaceholder": "Select size",
+      "placement": "Body placement",
+      "placementPlaceholder": "e.g. outer forearm, shoulder, calf",
+      "budget": "Budget range",
+      "budgetPlaceholder": "Prefer not to say",
+      "availability": "Availability / preferred dates",
+      "availabilityPlaceholder": "e.g. weekends from September, flexible",
+      "references": "Reference links (optional)",
+      "referencesHint": "Paste image URLs here — do not upload files.",
+      "referencesPlaceholder": "https://...",
+      "consent": "I consent to Jesuke storing and using the information I submit here to respond to my inquiry.",
+      "submit": "Send commission inquiry",
+      "submitting": "Sending…",
+      "errorFallback": "That did not send. Check your details and try again, or message on Facebook.",
+      "errors": {
+        "name": "Name is required.",
+        "email": "Email address is required.",
+        "idea": "Describe your idea so we can respond meaningfully.",
+        "size": "Approximate size helps with the quote.",
+        "consent": "Please confirm your consent to continue."
+      }
+    },
+    "professional": {
+      "label": "Professional inquiry",
+      "name": "Name",
+      "email": "Email",
+      "organisation": "Organisation / studio",
+      "role": "Your role",
+      "inquiryType": "Inquiry type",
+      "inquiryTypePlaceholder": "Select type",
+      "dates": "Dates / location",
+      "datesPlaceholder": "e.g. 14–16 November, Berlin",
+      "message": "Message",
+      "links": "Relevant links (optional)",
+      "linksPlaceholder": "Studio website, event page, social…",
+      "submit": "Send professional inquiry",
+      "submitting": "Sending…",
+      "errorFallback": "That did not send. Check your details and try again, or message on Facebook.",
+      "errors": {
+        "name": "Name is required.",
+        "email": "Email address is required.",
+        "inquiryType": "Select an inquiry type.",
+        "message": "A brief message helps us triage the inquiry."
+      }
+    }
+  }
+}

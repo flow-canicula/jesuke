@@ -15,7 +15,7 @@ export const FAQ: FaqEntry[] = [
     id: 'faq-how-to-book',
     question: 'How do I book a piece?',
     answer:
-      'Use the commission inquiry form. Describe your idea, approximate size, and placement — no need for a precise brief at this stage. If the project is a fit, you will hear back within a week to discuss details and a deposit.',
+      'Use the commission inquiry form. Describe your idea, approximate size, and placement — no need for a precise brief at this stage. If the project is a fit, you will hear back within a week to discuss details and a deposit. You can also reach out directly on Facebook.',
   },
   {
     id: 'faq-deposit',
@@ -37,8 +37,8 @@ export const FAQ: FaqEntry[] = [
   },
   {
     id: 'faq-guest-spots',
-    question: 'Do you travel for guest spots or conventions?',
+    question: 'Do you do guest spots?',
     answer:
-      'Yes. Studios and event organisers can reach out via the professional inquiry form with dates and location. Guest spot slots are limited and booked months in advance.',
+      'Jesuke works from a fixed location. Sessions happen where the setting is right and the person is right — safety and trust are non-negotiable. Visiting clients are welcome. Reach out first.',
   },
 ];

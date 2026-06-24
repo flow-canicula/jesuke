@@ -22,10 +22,11 @@ Options -Indexes
 
 # ─── Security headers ──────────────────────────────────────────────────────
 <IfModule mod_headers.c>
-  # Prevent clickjacking — also enforced by CSP frame-ancestors in <meta>
+  # Prevent clickjacking
   Header always set X-Frame-Options "DENY"
-  # CSP frame-ancestors (not enforceable via <meta>)
-  Header always set Content-Security-Policy "frame-ancestors 'none'"
+  # Full CSP — enforced here (HTTP header) rather than a <meta> tag.
+  # frame-ancestors can only be set via HTTP header, not <meta>.
+  Header always set Content-Security-Policy "default-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; connect-src 'self' https://formspree.io; img-src 'self' data:; base-uri 'self'; form-action https://formspree.io; frame-src 'none'; frame-ancestors 'none'"
   # Reduce referrer leakage
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
   # Block MIME-type sniffing

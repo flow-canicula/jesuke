@@ -8,13 +8,18 @@ export function buildPersonSchema(): JsonLdObject {
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: SITE_NAME,
-    jobTitle: 'Tattoo artist',
+    jobTitle: 'Anime, manga, and manhwa tattoo artist',
     knowsAbout: [
-      'Custom tattoo design',
+      'Anime tattoo design',
+      'Manga tattoo design',
+      'Manhwa tattoo design',
+      'Korean anime tattooing',
       'Blackwork tattooing',
+      'Fine-line tattooing',
       'Anime-inspired illustration',
       'Manga-inspired linework',
     ],
+    description: 'Tattoo artist based in Bulacan, Philippines who exclusively creates anime, manga, and manhwa tattoos. Original blackwork and fine-line pieces only — no other styles accepted.',
     sameAs: [SOCIAL.instagram, SOCIAL.facebook],
     url: SITE_URL,
   };
@@ -38,9 +43,9 @@ export function buildServiceSchema(): JsonLdObject {
       '@type': 'Person',
       name: SITE_NAME,
     },
-    serviceType: 'Custom tattooing',
+    serviceType: 'Anime, manga, and manhwa tattooing',
     description:
-      'Original anime and manga-inspired tattoo pieces designed to specification. Blackwork and fine-line styles. Commissions open via inquiry form.',
+      'Anime, manga, and manhwa tattoos only — original pieces designed to specification. Blackwork and fine-line. Based in Bulacan, Philippines. No other tattoo styles accepted. Commissions open via inquiry form.',
     url: `${SITE_URL}/booking`,
   };
 }

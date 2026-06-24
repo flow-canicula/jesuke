@@ -5,7 +5,7 @@ export const SITE_URL =
 export const SITE_NAME = 'Jesuke';
 
 export const SITE_DESCRIPTION =
-  'Anime and manga-inspired custom tattoo work. Bold contour lines, dramatic motion — set in ink.';
+  'Anime, manga, and manhwa tattoo artist based in Bulacan, Philippines. Only accepting anime, manga, and manhwa tattoos — bold contour lines, dramatic motion, set in ink.';
 
 export const SOCIAL = {
   instagram: 'https://www.instagram.com/jesuke_anime',
@@ -29,5 +29,5 @@ export const OG_DEFAULTS = {
   image: '/og/default.svg',
   imageWidth: 1200,
   imageHeight: 630,
-  imageAlt: 'Jesuke — anime and manga-inspired tattoo work',
+  imageAlt: 'Jesuke — anime, manga, and manhwa tattoo artist, Philippines',
 } as const;

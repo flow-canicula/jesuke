@@ -31,24 +31,14 @@ export const metadata: Metadata = {
   },
 };
 
-const CSP = [
-  "default-src 'none'",
-  "script-src 'self'",
-  "style-src 'self' 'unsafe-inline'",
-  "font-src 'self'",
-  "connect-src 'self' https://formspree.io",
-  "img-src 'self' data:",
-  "base-uri 'self'",
-  "form-action https://formspree.io",
-  "frame-src 'none'",
-].join('; ');
+// CSP is enforced via .htaccess HTTP headers in production (see public/.htaccess).
+// A meta-tag CSP is intentionally omitted — it cannot set frame-ancestors,
+// and it blocks React's eval() usage in dev mode.
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className="h-full">
-      <head>
-        <meta httpEquiv="Content-Security-Policy" content={CSP} />
-      </head>
+      <head />
       <body className="min-h-full flex flex-col bg-ink-900 text-ink-100">
         <a
           href="#main-content"

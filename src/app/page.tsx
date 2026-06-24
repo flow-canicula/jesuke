@@ -4,6 +4,7 @@ import { Manifesto } from '@/components/sections/Manifesto';
 import { FlashIndex } from '@/components/sections/FlashIndex';
 import { Process } from '@/components/sections/Process';
 import { Faq } from '@/components/sections/Faq';
+import { NameBanner } from '@/components/sections/NameBanner';
 import { CtaDoors } from '@/components/sections/CtaDoors';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { buildServiceSchema, buildFaqSchema } from '@/lib/jsonld';
@@ -21,6 +22,7 @@ export default function ArtistPage() {
       <Hero />
       <Manifesto />
       <FlashIndex />
+      <NameBanner />
       <Process />
       <Faq />
       <CtaDoors />

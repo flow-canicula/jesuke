@@ -1,135 +1,454 @@
+export type WorkCategory = 'healed' | 'junji' | 'waifu' | 'general' | 'designs' | 'stencils' | 'may-oct-2025' | 'old-designs' | 'blade-series' | 'ragnarok-series';
+
 export type FlashPiece = {
   id: string;
   index: string;
-  title: string;
-  description: string;
-  size: string;
-  placement: string;
-  sessions: number;
   alt: string;
-  // TODO: replace placeholder with real image path in public/work/
   image: string;
   imageWidth: number;
   imageHeight: number;
+  category: WorkCategory;
   featured: boolean;
+  placement?: string;
 };
 
 export const FLASH: FlashPiece[] = [
+  // ── Healed results ──────────────────────────────────────────────
   {
-    id: 'flash-001',
+    id: 'healed-001',
     index: '001',
-    title: 'Wind-torn swordsman',
-    description:
-      'A figure mid-turn, trailing ink like smoke — single-session blackwork.',
-    size: 'Forearm',
-    placement: 'Outer forearm',
-    sessions: 1,
-    alt: 'Blackwork tattoo of a wind-swept swordsman figure, ink trailing behind in motion',
-    image: '/work/placeholder.svg',
+    alt: 'Fully healed anime-style blackwork tattoo',
+    image: '/work/healed/fully-healed-2.jpg',
     imageWidth: 800,
     imageHeight: 1000,
+    category: 'healed',
     featured: true,
+    placement: 'Outer forearm',
   },
   {
-    id: 'flash-002',
+    id: 'healed-002',
     index: '002',
-    title: 'Spirit fox',
-    description: 'A quiet fox curled into the shoulder, clean linework.',
-    size: 'Palm-sized',
-    placement: 'Shoulder',
-    sessions: 1,
-    alt: 'Fine-line blackwork tattoo of a fox curled into a resting position',
-    image: '/work/placeholder.svg',
+    alt: 'Fully healed fine-line anime tattoo',
+    image: '/work/healed/fully-healed-3.jpg',
     imageWidth: 800,
-    imageHeight: 800,
+    imageHeight: 1000,
+    category: 'healed',
     featured: true,
+    placement: 'Upper arm',
   },
   {
-    id: 'flash-003',
+    id: 'healed-003',
     index: '003',
-    title: 'Storm crane',
-    description: 'A crane banking into a gust, wings fully extended.',
-    size: 'Quarter sleeve',
-    placement: 'Upper arm',
-    sessions: 2,
-    alt: 'Bold blackwork tattoo of a crane in flight through turbulent winds',
-    image: '/work/placeholder.svg',
+    alt: 'Healed anime tattoo — clean linework close-up',
+    image: '/work/healed/fully-healed-4.jpg',
     imageWidth: 800,
     imageHeight: 1200,
+    category: 'healed',
     featured: true,
+    placement: 'Calf',
   },
   {
-    id: 'flash-004',
+    id: 'healed-004',
     index: '004',
-    title: 'Lantern bearer',
-    description:
-      'A cloaked figure holding a single lantern against an empty background.',
-    size: 'Fist-sized',
-    placement: 'Calf',
-    sessions: 1,
-    alt: 'Blackwork tattoo of a cloaked figure holding a lantern in darkness',
-    image: '/work/placeholder.svg',
+    alt: 'Fully healed blackwork anime tattoo',
+    image: '/work/healed/fully-healed-5.jpg',
     imageWidth: 800,
     imageHeight: 1000,
+    category: 'healed',
     featured: false,
+    placement: 'Shin',
   },
   {
-    id: 'flash-005',
+    id: 'healed-005',
     index: '005',
-    title: 'Tide dragon',
-    description: 'A serpentine form coiling through white-capped waves.',
-    size: 'Half sleeve',
-    placement: 'Forearm to elbow',
-    sessions: 3,
-    alt: 'Large blackwork tattoo of a dragon coiling through ocean waves',
-    image: '/work/placeholder.svg',
+    alt: 'Healed anime-style tattoo',
+    image: '/work/healed/fully-healed-6.jpg',
     imageWidth: 800,
-    imageHeight: 1400,
+    imageHeight: 1000,
+    category: 'healed',
     featured: false,
+    placement: 'Forearm',
   },
   {
-    id: 'flash-006',
+    id: 'healed-006',
     index: '006',
-    title: 'Paper crane fold',
-    description: 'A single origami crane, rendered as contour geometry.',
-    size: 'Matchbox',
-    placement: 'Wrist',
-    sessions: 1,
-    alt: 'Minimal blackwork tattoo of an origami crane shown as clean geometric contour lines',
-    image: '/work/placeholder.svg',
+    alt: 'Healed anime tattoo — large format',
+    image: '/work/healed/fully-healed-7.jpg',
+    imageWidth: 800,
+    imageHeight: 1200,
+    category: 'healed',
+    featured: false,
+    placement: 'Thigh',
+  },
+  {
+    id: 'healed-007',
+    index: '007',
+    alt: 'Small healed blackwork anime tattoo',
+    image: '/work/healed/fully-healed-8.jpg',
     imageWidth: 600,
     imageHeight: 600,
+    category: 'healed',
     featured: false,
+    placement: 'Wrist',
   },
   {
-    id: 'flash-007',
-    index: '007',
-    title: 'Masked wanderer',
-    description:
-      'A traveller in a wide-brimmed hat, face obscured, road behind.',
-    size: 'Forearm',
+    id: 'healed-008',
+    index: '008',
+    alt: 'Healed manga-inspired tattoo',
+    image: '/work/healed/fully-healed-9.jpg',
+    imageWidth: 800,
+    imageHeight: 1100,
+    category: 'healed',
+    featured: false,
     placement: 'Inner forearm',
-    sessions: 2,
-    alt: 'Blackwork tattoo of a lone traveller with a wide hat, face unseen, walking a path',
-    image: '/work/placeholder.svg',
+  },
+  {
+    id: 'healed-009',
+    index: '009',
+    alt: 'Healed anime blackwork tattoo',
+    image: '/work/healed/fully-healed-10.jpg',
     imageWidth: 800,
     imageHeight: 1000,
+    category: 'healed',
     featured: false,
+    placement: 'Shoulder',
   },
   {
-    id: 'flash-008',
-    index: '008',
-    title: 'Moon hare',
-    description: 'A hare silhouetted against a full moon, ears erect.',
-    size: 'Palm-sized',
+    id: 'healed-010',
+    index: '010',
+    alt: 'Healed fine-line anime tattoo',
+    image: '/work/healed/fully-healed-11.jpg',
+    imageWidth: 800,
+    imageHeight: 1000,
+    category: 'healed',
+    featured: false,
+    placement: 'Calf',
+  },
+
+  // ── Junji-style horror / dark manga ─────────────────────────────
+  {
+    id: 'junji-001',
+    index: '011',
+    alt: 'Horror manga-inspired blackwork tattoo',
+    image: '/work/junji/junji-2.jpg',
+    imageWidth: 800,
+    imageHeight: 1000,
+    category: 'junji',
+    featured: true,
+    placement: 'Outer forearm',
+  },
+  {
+    id: 'junji-002',
+    index: '012',
+    alt: 'Dark manga blackwork tattoo',
+    image: '/work/junji/junji-3.jpg',
+    imageWidth: 800,
+    imageHeight: 1000,
+    category: 'junji',
+    featured: true,
+    placement: 'Upper arm',
+  },
+  {
+    id: 'junji-003',
+    index: '013',
+    alt: 'Horror manga-style tattoo in blackwork',
+    image: '/work/junji/junji-4.jpg',
+    imageWidth: 800,
+    imageHeight: 1000,
+    category: 'junji',
+    featured: false,
+    placement: 'Thigh',
+  },
+  {
+    id: 'junji-004',
+    index: '014',
+    alt: 'Dark manga portrait tattoo in heavy blackwork',
+    image: '/work/junji/junji-5.jpg',
+    imageWidth: 800,
+    imageHeight: 1000,
+    category: 'junji',
+    featured: false,
+    placement: 'Calf',
+  },
+  {
+    id: 'junji-005',
+    index: '015',
+    alt: 'Blackwork tattoo in horror manga style',
+    image: '/work/junji/junji-6.jpg',
+    imageWidth: 800,
+    imageHeight: 1000,
+    category: 'junji',
+    featured: false,
+    placement: 'Shoulder',
+  },
+
+  // ── Waifu / female figure ────────────────────────────────────────
+  {
+    id: 'waifu-001',
+    index: '016',
+    alt: 'Anime-style tattoo of a female figure in flowing robes',
+    image: '/work/waifu/waifu-1.jpg',
+    imageWidth: 800,
+    imageHeight: 1000,
+    category: 'waifu',
+    featured: true,
+    placement: 'Thigh',
+  },
+  {
+    id: 'waifu-002',
+    index: '017',
+    alt: 'Fine-line anime tattoo of a female figure',
+    image: '/work/waifu/waifu-2.jpg',
+    imageWidth: 800,
+    imageHeight: 1000,
+    category: 'waifu',
+    featured: true,
+    placement: 'Outer forearm',
+  },
+  {
+    id: 'waifu-003',
+    index: '018',
+    alt: 'Anime-style tattoo of a female figure with flowing hair',
+    image: '/work/waifu/waifu-3.jpg',
+    imageWidth: 800,
+    imageHeight: 1200,
+    category: 'waifu',
+    featured: false,
+    placement: 'Upper arm',
+  },
+  {
+    id: 'waifu-004',
+    index: '019',
+    alt: 'Anime blackwork tattoo — female figure in profile',
+    image: '/work/waifu/waifu-4.jpg',
+    imageWidth: 800,
+    imageHeight: 1000,
+    category: 'waifu',
+    featured: false,
+    placement: 'Calf',
+  },
+  {
+    id: 'waifu-005',
+    index: '020',
+    alt: 'Fine-line anime-style tattoo of a female figure',
+    image: '/work/waifu/waifu-5.jpg',
+    imageWidth: 800,
+    imageHeight: 1000,
+    category: 'waifu',
+    featured: false,
     placement: 'Shin',
-    sessions: 1,
-    alt: 'Blackwork tattoo of a hare in silhouette against a full moon',
-    image: '/work/placeholder.svg',
+  },
+
+  // ── General / numbered ───────────────────────────────────────────
+  {
+    id: 'general-001',
+    index: '021',
+    alt: 'Anime blackwork tattoo by Jesuke',
+    image: '/work/general/2.jpg',
+    imageWidth: 800,
+    imageHeight: 1000,
+    category: 'general',
+    featured: false,
+    placement: 'Forearm',
+  },
+  {
+    id: 'general-002',
+    index: '022',
+    alt: 'Anime blackwork tattoo by Jesuke',
+    image: '/work/general/3.jpg',
+    imageWidth: 800,
+    imageHeight: 1000,
+    category: 'general',
+    featured: false,
+    placement: 'Upper arm',
+  },
+  {
+    id: 'general-003',
+    index: '023',
+    alt: 'Anime-style tattoo by Jesuke',
+    image: '/work/general/4.jpg',
+    imageWidth: 800,
+    imageHeight: 1000,
+    category: 'general',
+    featured: false,
+    placement: 'Thigh',
+  },
+  {
+    id: 'general-004',
+    index: '024',
+    alt: 'Anime blackwork tattoo scene by Jesuke',
+    image: '/work/general/5.jpg',
+    imageWidth: 800,
+    imageHeight: 1200,
+    category: 'general',
+    featured: false,
+    placement: 'Back',
+  },
+  {
+    id: 'general-005',
+    index: '025',
+    alt: 'Detailed anime blackwork tattoo by Jesuke',
+    image: '/work/general/6.jpg',
     imageWidth: 800,
     imageHeight: 800,
+    category: 'general',
     featured: false,
+    placement: 'Shoulder',
   },
 ];
 
+// ── May – October 2025 Tattoo Works ─────────────────────────────
+// 52 photos from the May–October 2025 shoot.
+// Alt text is intentionally generic — no franchise names (NO-FRANCHISE-NAMES rule).
+const MAY_OCT_2025: FlashPiece[] = Array.from({ length: 52 }, (_, i) => {
+  const n = i + 1;
+  const idx = (FLASH.length + n).toString().padStart(3, '0');
+  return {
+    id: `may-oct-2025-${String(n).padStart(3, '0')}`,
+    index: idx,
+    alt: `Anime, manga, and manhwa tattoo by Jesuke — May–October 2025`,
+    image: `/work/may-oct-2025/tattoo-${String(n).padStart(3, '0')}.jpg`,
+    imageWidth: 1080,
+    imageHeight: 1080,
+    category: 'may-oct-2025' as WorkCategory,
+    featured: n <= 6,
+  };
+});
+
+FLASH.push(...MAY_OCT_2025);
+
+// ── Old designs ──────────────────────────────────────────────────
+// 55 design/illustration photos — earlier work before the current series.
+const OLD_DESIGNS: FlashPiece[] = Array.from({ length: 55 }, (_, i) => {
+  const n = i + 1;
+  const idx = (FLASH.length + n).toString().padStart(3, '0');
+  return {
+    id: `old-designs-${String(n).padStart(3, '0')}`,
+    index: idx,
+    alt: `Anime, manga, and manhwa tattoo design by Jesuke — archive`,
+    image: `/work/old-designs/design-${String(n).padStart(3, '0')}.jpg`,
+    imageWidth: 1080,
+    imageHeight: 1080,
+    category: 'old-designs' as WorkCategory,
+    featured: false,
+  };
+});
+
+FLASH.push(...OLD_DESIGNS);
+
+// ── Blade series ─────────────────────────────────────────────────
+// 19 photos of a patterned-haori / blade-and-breath blackwork series.
+// Described generically per NO-FRANCHISE-NAMES — no title or character named.
+const BLADE_SERIES: FlashPiece[] = Array.from({ length: 19 }, (_, i) => {
+  const n = i + 1;
+  const idx = (FLASH.length + n).toString().padStart(3, '0');
+  const alts = [
+    'Blackwork tattoo of a blade-wielding figure in a patterned haori',
+    'Fine-line tattoo of a figure wreathed in breath-style flames and shadow',
+    'Anime blackwork tattoo — patterned coat and decisive sword stance',
+    'Dark figure study tattoo — haori detail and motion lines',
+    'Blackwork tattoo of a kneeling swordsman, breath-style effect',
+    'Anime-style tattoo of two figures facing off, bold contour line',
+    'Fine-line tattoo portrait — determined expression, strong jaw',
+    'Blackwork tattoo of a figure mid-strike, cloak trailing behind',
+    'Patterned haori blackwork tattoo — geometric repeat on fabric folds',
+    'Anime tattoo of a figure ascending, breath-style energy lines',
+    'Dark blackwork tattoo — silhouetted swordsman against a full moon',
+    'Fine-line tattoo of a figure in repose, blade at rest',
+    'Anime blackwork — back piece detail, haori and shoulder musculature',
+    'Breath-style energy burst tattoo — radiating lines, no fill',
+    'Tattoo of a masked figure, patterned garment, clean linework',
+    'Blackwork tattoo of a crouching fighter, tension in every line',
+    'Anime-style tattoo close-up — eye detail and hatched shadow',
+    'Fine-line tattoo of intertwined figures, dynamic composition',
+    'Blackwork tattoo of a lone figure walking a dark path',
+  ] as const;
+  return {
+    id: `blade-series-${String(n).padStart(3, '0')}`,
+    index: idx,
+    alt: alts[(n - 1) % alts.length] ?? `Anime blackwork tattoo by Jesuke — blade series piece ${n}`,
+    image: `/work/blade-series/blade-${String(n).padStart(3, '0')}.jpg`,
+    imageWidth: 1080,
+    imageHeight: 1080,
+    category: 'blade-series' as WorkCategory,
+    featured: false,
+  };
+});
+
+FLASH.push(...BLADE_SERIES);
+
+// ── Ancient arena / divine combatant series ──────────────────────
+// 6 prized blackwork pieces — godlike figures and ancient arena scenes.
+// Described generically per NO-FRANCHISE-NAMES — no title or character named.
+const RAGNAROK_SERIES: FlashPiece[] = [
+  {
+    id: 'ragnarok-001',
+    index: (FLASH.length + 1).toString().padStart(3, '0'),
+    alt: 'Large blackwork tattoo of a powerful divine figure in a combative stance',
+    image: '/work/ragnarok-series/ragnarok-001.jpg',
+    imageWidth: 1080,
+    imageHeight: 1080,
+    category: 'ragnarok-series',
+    featured: true,
+  },
+  {
+    id: 'ragnarok-002',
+    index: (FLASH.length + 2).toString().padStart(3, '0'),
+    alt: 'Blackwork tattoo of an ancient arena scene with dramatic scale',
+    image: '/work/ragnarok-series/ragnarok-002.jpg',
+    imageWidth: 1080,
+    imageHeight: 1080,
+    category: 'ragnarok-series',
+    featured: true,
+  },
+  {
+    id: 'ragnarok-003',
+    index: (FLASH.length + 3).toString().padStart(3, '0'),
+    alt: 'Blackwork tattoo of two powerful figures clashing in a high-impact manga composition',
+    image: '/work/ragnarok-series/ragnarok-003.jpg',
+    imageWidth: 1080,
+    imageHeight: 1080,
+    category: 'ragnarok-series',
+    featured: true,
+  },
+  {
+    id: 'ragnarok-004',
+    index: (FLASH.length + 4).toString().padStart(3, '0'),
+    alt: 'Large blackwork tattoo of a deity figure surrounded by elemental energy and motion lines',
+    image: '/work/ragnarok-series/ragnarok-004.jpg',
+    imageWidth: 1080,
+    imageHeight: 1080,
+    category: 'ragnarok-series',
+    featured: true,
+  },
+  {
+    id: 'ragnarok-005',
+    index: (FLASH.length + 5).toString().padStart(3, '0'),
+    alt: 'Fine-line blackwork tattoo of a lone figure in a defiant stance',
+    image: '/work/ragnarok-series/ragnarok-005.jpg',
+    imageWidth: 1080,
+    imageHeight: 1080,
+    category: 'ragnarok-series',
+    featured: true,
+  },
+  {
+    id: 'ragnarok-006',
+    index: (FLASH.length + 6).toString().padStart(3, '0'),
+    alt: 'Blackwork portrait tattoo of a figure in a moment of resolve',
+    image: '/work/ragnarok-series/ragnarok-006.jpg',
+    imageWidth: 1080,
+    imageHeight: 1080,
+    category: 'ragnarok-series',
+    featured: true,
+  },
+];
+
+FLASH.push(...RAGNAROK_SERIES);
+
 export const FEATURED = FLASH.filter((p) => p.featured);
+
+// Home page: ragnarok series first (most prized), then remaining featured — max 12.
+export const HOME_FEATURED = [
+  ...FLASH.filter((p) => p.category === 'ragnarok-series'),
+  ...FLASH.filter((p) => p.featured && p.category !== 'ragnarok-series'),
+].slice(0, 12);

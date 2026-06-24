@@ -29,28 +29,69 @@ const STEPS = [
 export function Process() {
   return (
     <section
-      className="section-paper py-20 md:py-28"
+      className="relative py-28 md:py-40 overflow-hidden"
       aria-labelledby="process-heading"
+      style={{ background: 'var(--color-ink-900)' }}
     >
-      <div className="max-w-6xl mx-auto px-6">
-        <p className="eyebrow text-paper-700 opacity-50 mb-6">How it works</p>
-        <h2
-          id="process-heading"
-          className="text-[clamp(1.5rem,4vw,3rem)] font-display text-paper-700 leading-tight mb-14 max-w-xl"
-        >
-          From inquiry to healed ink.
-        </h2>
+      {/* Screentone */}
+      <div className="absolute inset-0 screentone opacity-30 pointer-events-none" aria-hidden="true" />
 
-        <ol className="grid grid-cols-1 md:grid-cols-5 gap-8" role="list">
+      <div className="relative max-w-6xl mx-auto px-6">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-20">
+          <div>
+            <p className="eyebrow mb-6" style={{ color: 'var(--color-ink-100)', opacity: 0.4 }}>
+              How it works
+            </p>
+            <h2
+              id="process-heading"
+              className="font-display leading-tight"
+              style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', color: 'var(--color-paper-50)', maxWidth: '16ch' }}
+            >
+              From inquiry to healed ink.
+            </h2>
+          </div>
+          {/* Large step count — decorative */}
+          <p
+            className="font-display leading-none select-none"
+            style={{ fontSize: 'clamp(4rem, 10vw, 7rem)', color: 'var(--color-ink-800)', opacity: 0.8 }}
+            aria-hidden="true"
+          >
+            05
+          </p>
+        </div>
+
+        <ol role="list" className="space-y-0">
           {STEPS.map((step) => (
-            <li key={step.n} className="flex flex-col gap-3">
-              <p className="eyebrow text-paper-700 opacity-30">{step.n}</p>
-              <h3 className="font-display text-paper-700 text-xl">{step.title}</h3>
-              <p className="text-paper-700 text-sm leading-relaxed opacity-80">
+            <li
+              key={step.n}
+              className="grid grid-cols-[auto_1fr] md:grid-cols-[80px_1fr_2fr] items-start gap-6 md:gap-12 py-8 border-t"
+              style={{ borderColor: 'var(--color-line)' }}
+            >
+              {/* Step number */}
+              <p
+                className="eyebrow pt-1"
+                style={{ color: 'var(--color-ink-100)', opacity: 0.3 }}
+              >
+                {step.n}
+              </p>
+              {/* Title */}
+              <h3
+                className="font-display"
+                style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)', color: 'var(--color-paper-50)' }}
+              >
+                {step.title}
+              </h3>
+              {/* Body — hidden on mobile col-span-2 fallback */}
+              <p
+                className="col-start-2 md:col-start-3 text-sm leading-relaxed"
+                style={{ color: 'var(--color-ink-100)', opacity: 0.65 }}
+              >
                 {step.body}
               </p>
             </li>
           ))}
+          {/* Bottom border */}
+          <li className="border-t" style={{ borderColor: 'var(--color-line)' }} aria-hidden="true" />
         </ol>
       </div>
     </section>

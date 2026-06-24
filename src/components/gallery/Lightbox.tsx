@@ -63,7 +63,7 @@ export function Lightbox({ piece, onClose }: LightboxProps) {
       ref={backdropRef}
       role="dialog"
       aria-modal="true"
-      aria-label={piece.title}
+      aria-label={`Piece ${piece.index}`}
       className="fixed inset-0 z-50 flex items-center justify-center bg-ink-900/95 p-4 md:p-12"
       onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}
     >
@@ -91,33 +91,14 @@ export function Lightbox({ piece, onClose }: LightboxProps) {
           />
         </div>
 
-        {/* Caption */}
-        <div className="p-6 border-t hairline">
-          <div className="flex items-start justify-between gap-4">
-            <div>
-              <p className="eyebrow text-ink-100 opacity-40 mb-1">{piece.index}</p>
-              <p className="text-paper-50 font-body">{piece.title}</p>
-              <p className="text-ink-100 opacity-60 text-sm mt-1 leading-relaxed">
-                {piece.description}
-              </p>
-            </div>
-            <dl className="flex-shrink-0 text-right space-y-0.5">
-              <div>
-                <dt className="sr-only">Size</dt>
-                <dd className="eyebrow text-ink-100 opacity-40 text-xs">{piece.size}</dd>
-              </div>
-              <div>
-                <dt className="sr-only">Placement</dt>
-                <dd className="eyebrow text-ink-100 opacity-40 text-xs">{piece.placement}</dd>
-              </div>
-              <div>
-                <dt className="sr-only">Sessions</dt>
-                <dd className="eyebrow text-ink-100 opacity-40 text-xs">
-                  {piece.sessions === 1 ? '1 session' : `${piece.sessions} sessions`}
-                </dd>
-              </div>
-            </dl>
-          </div>
+        {/* Placement */}
+        <div className="px-6 py-4 border-t hairline flex items-center gap-6">
+          {piece.placement && (
+            <>
+              <span className="eyebrow text-ink-100 opacity-30" style={{ fontSize: '0.6rem' }}>Placement</span>
+              <p className="eyebrow text-ink-100 opacity-60">{piece.placement}</p>
+            </>
+          )}
         </div>
       </div>
     </div>

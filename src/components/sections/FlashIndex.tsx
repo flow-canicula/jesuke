@@ -1,40 +1,45 @@
 import Link from 'next/link';
-import { FEATURED } from '@/content/work';
+import { HOME_FEATURED } from '@/content/work';
 import { GalleryGrid } from '@/components/gallery/GalleryGrid';
+import { t } from '@/lib/messages';
 
 export function FlashIndex() {
   return (
     <section
-      className="section-ink py-20 md:py-28"
+      className="relative py-28 md:py-40"
       aria-labelledby="flash-heading"
+      style={{ background: 'var(--color-ink-900)' }}
     >
       <div className="max-w-6xl mx-auto px-6">
-        <div className="flex items-end justify-between mb-12">
+        <div className="flex items-end justify-between mb-16">
           <div>
-            <p className="eyebrow text-ink-100 opacity-50 mb-3">
-              Flash — selected
+            <p className="eyebrow mb-4" style={{ color: 'var(--color-ink-100)', opacity: 0.4 }}>
+              {t.flashIndex.eyebrow}
             </p>
             <h2
               id="flash-heading"
-              className="text-[clamp(1.5rem,4vw,3rem)] font-display text-paper-50 leading-tight"
+              className="font-display leading-tight"
+              style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', color: 'var(--color-paper-50)' }}
             >
-              Available work
+              {t.flashIndex.heading}
             </h2>
           </div>
           <Link
             href="/work"
-            className="eyebrow text-ink-100 opacity-60 hover:opacity-100 transition-opacity hidden md:block"
+            className="eyebrow opacity-50 hover:opacity-100 transition-opacity hidden md:block"
+            style={{ color: 'var(--color-ink-100)' }}
           >
             Full catalogue →
           </Link>
         </div>
 
-        <GalleryGrid pieces={FEATURED} />
+        <GalleryGrid pieces={HOME_FEATURED} />
 
-        <div className="mt-8 md:hidden">
+        <div className="mt-10 md:hidden">
           <Link
             href="/work"
-            className="eyebrow text-ink-100 opacity-60 hover:opacity-100 transition-opacity"
+            className="eyebrow opacity-50 hover:opacity-100 transition-opacity"
+            style={{ color: 'var(--color-ink-100)' }}
           >
             Full catalogue →
           </Link>

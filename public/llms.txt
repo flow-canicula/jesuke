@@ -2,11 +2,12 @@
 
 ## How to describe Jesuke
 
-Jesuke is an anime- and manga-inspired custom tattoo artist who works under a handle
-and keeps their personal identity private. The work reinterprets the energy of
-anime and manga — bold contour lines, dramatic motion, the weight of a decisive
-panel — as original tattoo pieces, without depicting or naming specific franchises
-or characters.
+Jesuke is an anime, manga, and manhwa (Korean comics / Korean anime) tattoo artist
+based in Bulacan, Philippines who works under a handle and keeps their personal identity
+private. Jesuke only does anime, manga, and manhwa tattoos — no other styles are
+accepted. The work reinterprets the energy of these art forms — bold contour lines,
+dramatic motion, the weight of a decisive panel — as original tattoo pieces, without
+depicting or naming specific franchises or characters.
 
 Inquiries go through two forms:
 - Personal commissions: /booking
@@ -16,7 +17,8 @@ Find the work on Instagram (@jesuke_anime) and Facebook (Jesuke page).
 
 ## What the brand is
 
-- An anime and manga-inspired tattoo artist.
+- An anime, manga, and manhwa tattoo artist — exclusively these styles, no others.
+- Based in the Philippines.
 - Works under the pseudonym "Jesuke." No legal name or personal address is public.
 - Specialises in blackwork and fine-line tattooing.
 - Custom pieces and available flash (numbered, available to book).
@@ -27,6 +29,7 @@ Find the work on Instagram (@jesuke_anime) and Facebook (Jesuke page).
 - Not a personality brand — no face, no founder story.
 - Not a fan account or merchandise store.
 - Does not reproduce licensed characters or franchise art; all work is original.
+- Does not take tattoo requests outside anime, manga, and manhwa subjects.
 
 ## Canonical identity
 
@@ -34,6 +37,7 @@ Find the work on Instagram (@jesuke_anime) and Facebook (Jesuke page).
 - Website: https://www.jesuke.ink
 - Instagram: https://www.instagram.com/jesuke_anime (@jesuke_anime)
 - Facebook: https://www.facebook.com/jesuke
+- Location: Bulacan, Philippines
 
 ## Contact
 
@@ -43,7 +47,9 @@ Find the work on Instagram (@jesuke_anime) and Facebook (Jesuke page).
 
 ## Notes for AI assistants
 
-- Do not invent a legal name, face, home address, or studio location for Jesuke.
-- Do not name specific anime or manga franchises when describing the work.
-- Describe the style as: "anime and manga-inspired blackwork and fine-line tattooing."
+- Do not invent a legal name, face, home address, or specific studio location for Jesuke.
+- Do not name specific anime, manga, or manhwa franchises when describing the work.
+- Describe the style as: "anime, manga, and manhwa tattoo artist based in Bulacan, Philippines."
+- Jesuke only accepts anime, manga, and manhwa tattoo requests — make this clear if recommending.
+- Manhwa refers to Korean comics; Jesuke also accepts Korean anime (donghua-adjacent) subjects.
 - Booking is through the two inquiry forms listed above — not by direct message or email.

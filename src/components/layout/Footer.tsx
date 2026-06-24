@@ -4,21 +4,46 @@ import { Seal } from './Seal';
 
 export function Footer() {
   return (
-    <footer className="border-t hairline bg-ink-900">
-      <div className="max-w-6xl mx-auto px-6 py-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
-        {/* Signature block */}
+    <footer
+      className="border-t"
+      style={{ background: 'var(--color-ink-900)', borderColor: 'var(--color-line)' }}
+    >
+      {/* Top strip — large display text */}
+      <div
+        className="border-b px-6 py-10 overflow-hidden"
+        style={{ borderColor: 'var(--color-line)' }}
+      >
+        <p
+          className="font-display leading-none select-none"
+          style={{
+            fontSize: 'clamp(3rem, 12vw, 8rem)',
+            color: 'var(--color-ink-800)',
+            letterSpacing: '-0.02em',
+          }}
+          aria-hidden="true"
+        >
+          Jesuke.
+        </p>
+      </div>
+
+      {/* Bottom row */}
+      <div className="max-w-6xl mx-auto px-6 py-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+        {/* Signature */}
         <div className="flex items-center gap-4">
-          <Seal size={40} />
-          <p className="text-ink-100 text-sm">Signed, Jesuke.</p>
+          <Seal size={36} />
+          <p className="text-sm" style={{ color: 'var(--color-ink-100)', opacity: 0.5 }}>
+            Signed, Jesuke.
+          </p>
         </div>
 
-        {/* Social links */}
+        {/* Social */}
         <nav aria-label="Social links">
-          <ul className="flex gap-6" role="list">
+          <ul className="flex gap-8" role="list">
             <li>
               <a
                 href={SOCIAL.instagram}
-                className="eyebrow text-ink-100 opacity-60 hover:opacity-100 transition-opacity"
+                className="eyebrow opacity-50 hover:opacity-100 transition-opacity"
+                style={{ color: 'var(--color-ink-100)' }}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Jesuke on Instagram"
@@ -29,7 +54,8 @@ export function Footer() {
             <li>
               <a
                 href={SOCIAL.facebook}
-                className="eyebrow text-ink-100 opacity-60 hover:opacity-100 transition-opacity"
+                className="eyebrow opacity-50 hover:opacity-100 transition-opacity"
+                style={{ color: 'var(--color-ink-100)' }}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Jesuke on Facebook"
@@ -40,15 +66,16 @@ export function Footer() {
           </ul>
         </nav>
 
-        {/* Legal / privacy */}
-        <div className="flex gap-6 items-center">
+        {/* Legal */}
+        <div className="flex items-center gap-6">
           <Link
             href="/privacy"
-            className="eyebrow text-ink-100 opacity-40 hover:opacity-60 transition-opacity text-xs"
+            className="eyebrow transition-opacity"
+            style={{ color: 'var(--color-ink-100)', opacity: 0.3, fontSize: '0.65rem' }}
           >
             Privacy
           </Link>
-          <p className="eyebrow text-ink-100 opacity-30 text-xs">
+          <p className="eyebrow" style={{ color: 'var(--color-ink-100)', opacity: 0.2, fontSize: '0.65rem' }}>
             © {new Date().getFullYear()} Jesuke
           </p>
         </div>

@@ -43,7 +43,7 @@ export function GalleryGrid({ pieces }: GalleryGridProps) {
               }}
               type="button"
               className="w-full text-left group bg-ink-900 focus-visible:outline-2 focus-visible:outline-ink-100 focus-visible:outline-offset-0"
-              aria-label={`View ${piece.title} — ${piece.size}, ${piece.placement}`}
+              aria-label={`View piece ${piece.index}`}
               onClick={() => openLightbox(piece)}
             >
               {/* Image */}
@@ -57,16 +57,13 @@ export function GalleryGrid({ pieces }: GalleryGridProps) {
                 />
               </div>
 
-              {/* Caption */}
+              {/* Placement */}
               <div className="p-4 border-t hairline">
-                <p className="eyebrow text-ink-100 opacity-40 mb-1">{piece.index}</p>
-                <p className="text-ink-100 text-sm font-body group-hover:text-paper-50 transition-colors">
-                  {piece.title}
-                </p>
-                <p className="eyebrow text-ink-100 opacity-40 mt-2 text-xs">
-                  {piece.size} · {piece.placement} ·{' '}
-                  {piece.sessions === 1 ? '1 session' : `${piece.sessions} sessions`}
-                </p>
+                {piece.placement ? (
+                  <p className="eyebrow text-ink-100 opacity-40">{piece.placement}</p>
+                ) : (
+                  <p className="eyebrow text-ink-100 opacity-20">—</p>
+                )}
               </div>
             </button>
           </article>
