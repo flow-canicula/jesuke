@@ -31,7 +31,7 @@ export default function WorkPage() {
           </h1>
         </header>
 
-        <GalleryGrid pieces={FLASH} />
+        <GalleryGrid pieces={FLASH} basePath={process.env.NEXT_PUBLIC_BASE_PATH ?? ''} />
       </div>
 
       <JsonLd schema={buildBreadcrumbSchema(breadcrumbs)} />

@@ -2,15 +2,15 @@
 
 import { useState, useRef } from 'react';
 import Image from 'next/image';
-import { img } from '@/lib/imageLoader';
 import { Lightbox } from './Lightbox';
 import type { FlashPiece } from '@/content/work';
 
 type GalleryGridProps = {
   pieces: FlashPiece[];
+  basePath?: string;
 };
 
-export function GalleryGrid({ pieces }: GalleryGridProps) {
+export function GalleryGrid({ pieces, basePath = '' }: GalleryGridProps) {
   const [activePiece, setActivePiece] = useState<FlashPiece | null>(null);
   // Track which button opened the lightbox so we can restore focus on close
   const triggerRefs = useRef<Map<string, HTMLButtonElement>>(new Map());
@@ -50,7 +50,7 @@ export function GalleryGrid({ pieces }: GalleryGridProps) {
               {/* Image */}
               <div className="aspect-[4/5] relative bg-ink-800 overflow-hidden">
                 <Image
-                  src={img(piece.image)}
+                  src={`${basePath}${piece.image}`}
                   alt={piece.alt}
                   width={piece.imageWidth}
                   height={piece.imageHeight}
@@ -72,7 +72,7 @@ export function GalleryGrid({ pieces }: GalleryGridProps) {
       </div>
 
       {activePiece && (
-        <Lightbox piece={activePiece} onClose={closeLightbox} />
+        <Lightbox piece={activePiece} basePath={basePath} onClose={closeLightbox} />
       )}
     </>
   );

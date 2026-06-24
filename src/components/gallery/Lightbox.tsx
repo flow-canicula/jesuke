@@ -2,15 +2,15 @@
 
 import { useEffect, useRef } from 'react';
 import Image from 'next/image';
-import { img } from '@/lib/imageLoader';
 import type { FlashPiece } from '@/content/work';
 
 type LightboxProps = {
   piece: FlashPiece;
+  basePath?: string;
   onClose: () => void;
 };
 
-export function Lightbox({ piece, onClose }: LightboxProps) {
+export function Lightbox({ piece, basePath = '', onClose }: LightboxProps) {
   const closeBtnRef = useRef<HTMLButtonElement>(null);
   const backdropRef = useRef<HTMLDivElement>(null);
 
@@ -83,7 +83,7 @@ export function Lightbox({ piece, onClose }: LightboxProps) {
         {/* Image */}
         <div className="relative aspect-[4/5] bg-ink-900 flex-shrink-0" style={{ maxHeight: '70vh' }}>
           <Image
-            src={img(piece.image)}
+            src={`${basePath}${piece.image}`}
             alt={piece.alt}
             width={piece.imageWidth}
             height={piece.imageHeight}

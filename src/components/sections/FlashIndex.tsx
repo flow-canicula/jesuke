@@ -33,7 +33,7 @@ export function FlashIndex() {
           </Link>
         </div>
 
-        <GalleryGrid pieces={HOME_FEATURED} />
+        <GalleryGrid pieces={HOME_FEATURED} basePath={process.env.NEXT_PUBLIC_BASE_PATH ?? ''} />
 
         <div className="mt-10 md:hidden">
           <Link
