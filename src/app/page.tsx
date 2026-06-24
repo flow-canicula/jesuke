@@ -22,7 +22,7 @@ export default function ArtistPage() {
       <Hero />
       <Manifesto />
       <FlashIndex />
-      <NameBanner />
+      <NameBanner basePath={process.env.NEXT_PUBLIC_BASE_PATH ?? ''} />
       <Process />
       <Faq />
       <CtaDoors />

@@ -62,7 +62,7 @@ const FLEX_IDLE = 1;
 const FLEX_ACTIVE = 2.2;
 const FLEX_COMPRESSED = 0.7;
 
-export function NameBanner() {
+export function NameBanner({ basePath = '' }: { basePath?: string }) {
   const sectionRef = useRef<HTMLElement>(null);
   const [entered, setEntered] = useState(false);
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
@@ -152,7 +152,7 @@ export function NameBanner() {
             >
               {/* Photo */}
               <Image
-                src={panel.image}
+                src={`${basePath}${panel.image}`}
                 alt={panel.alt}
                 width={panel.imageWidth}
                 height={panel.imageHeight}
