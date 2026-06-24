@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import Image from 'next/image';
+import { img } from '@/lib/imageLoader';
 import type { FlashPiece } from '@/content/work';
 
 type LightboxProps = {
@@ -82,7 +83,7 @@ export function Lightbox({ piece, onClose }: LightboxProps) {
         {/* Image */}
         <div className="relative aspect-[4/5] bg-ink-900 flex-shrink-0" style={{ maxHeight: '70vh' }}>
           <Image
-            src={piece.image}
+            src={img(piece.image)}
             alt={piece.alt}
             width={piece.imageWidth}
             height={piece.imageHeight}

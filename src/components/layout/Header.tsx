@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { img } from '@/lib/imageLoader';
 import { Nav } from './Nav';
 
 export function Header() {
@@ -21,7 +22,7 @@ export function Header() {
           aria-label="Jesuke — home"
         >
           <Image
-            src="/logo.png"
+            src={img('/logo.png')}
             alt=""
             width={120}
             height={40}

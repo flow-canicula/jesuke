@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { img } from '@/lib/imageLoader';
 
 export function CtaDoors() {
   return (
@@ -11,7 +12,7 @@ export function CtaDoors() {
       {/* Full-bleed background photo */}
       <div className="absolute inset-0">
         <Image
-          src="/work/ragnarok-series/ragnarok-003.jpg"
+          src={img('/work/ragnarok-series/ragnarok-003.jpg')}
           alt=""
           fill
           className="object-cover object-center"

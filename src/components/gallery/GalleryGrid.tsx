@@ -2,6 +2,7 @@
 
 import { useState, useRef } from 'react';
 import Image from 'next/image';
+import { img } from '@/lib/imageLoader';
 import { Lightbox } from './Lightbox';
 import type { FlashPiece } from '@/content/work';
 
@@ -49,7 +50,7 @@ export function GalleryGrid({ pieces }: GalleryGridProps) {
               {/* Image */}
               <div className="aspect-[4/5] relative bg-ink-800 overflow-hidden">
                 <Image
-                  src={piece.image}
+                  src={img(piece.image)}
                   alt={piece.alt}
                   width={piece.imageWidth}
                   height={piece.imageHeight}

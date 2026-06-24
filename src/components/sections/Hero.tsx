@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { img } from '@/lib/imageLoader';
 import { Seal } from '@/components/layout/Seal';
 
 export function Hero() {
@@ -11,7 +12,7 @@ export function Hero() {
       {/* Full-bleed background photo */}
       <div className="absolute inset-0">
         <Image
-          src="/work/may-oct-2025/tattoo-015.jpg"
+          src={img('/work/may-oct-2025/tattoo-015.jpg')}
           alt=""
           fill
           priority

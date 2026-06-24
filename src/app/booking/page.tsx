@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import { img } from '@/lib/imageLoader';
 import { CommissionForm } from '@/components/forms/CommissionForm';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { buildBreadcrumbSchema } from '@/lib/jsonld';
@@ -43,7 +44,7 @@ export default function BookingPage() {
           }}
         >
           <Image
-            src="/work/waifu/waifu-13.jpg"
+            src={img('/work/waifu/waifu-13.jpg')}
             alt=""
             width={760}
             height={1013}

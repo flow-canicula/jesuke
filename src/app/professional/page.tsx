@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import { img } from '@/lib/imageLoader';
 import { ProfessionalForm } from '@/components/forms/ProfessionalForm';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { buildBreadcrumbSchema } from '@/lib/jsonld';
@@ -23,7 +24,7 @@ export default function ProfessionalPage() {
       {/* Cinematic header */}
       <div className="relative overflow-hidden" style={{ height: 'clamp(420px, 65vh, 680px)' }}>
         <Image
-          src="/work/junji/junji-9.jpg"
+          src={img('/work/junji/junji-9.jpg')}
           alt=""
           fill
           priority
