@@ -59,6 +59,13 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     images: [OG_IMAGE_URL],
   },
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: '16x16 32x32 48x48' },
+      { url: '/favicon-192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+    ],
+  },
   other: {
     'msvalidate.01': '5EE37C4475658ED39476D042A78E2C57',
   },

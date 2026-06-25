@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" width="192" height="192">
+  <rect width="192" height="192" rx="24" fill="#0b0b0d"/>
+  <!-- Screentone dot field -->
+  <pattern id="dots" x="0" y="0" width="12" height="12" patternUnits="userSpaceOnUse">
+    <circle cx="6" cy="6" r="0.9" fill="rgba(255,255,255,0.06)"/>
+  </pattern>
+  <rect width="192" height="192" rx="24" fill="url(#dots)"/>
+  <!-- Thin circle border (seal ring) -->
+  <circle cx="96" cy="96" r="72" stroke="#b23a2e" stroke-width="2.5" fill="none" opacity="0.5"/>
+  <!-- J lettermark in seal red -->
+  <text x="96" y="132" font-family="Arial Black, Arial, sans-serif" font-size="110" font-weight="900" fill="#b23a2e" text-anchor="middle" letter-spacing="-2">J</text>
+</svg>
