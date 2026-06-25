@@ -59,6 +59,9 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     images: [OG_IMAGE_URL],
   },
+  other: {
+    'msvalidate.01': '5EE37C4475658ED39476D042A78E2C57',
+  },
 };
 
 // CSP is enforced via .htaccess HTTP headers in production (see public/.htaccess).
