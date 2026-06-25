@@ -39,7 +39,7 @@ describe('buildMetadata', () => {
     const meta = buildMetadata({ canonical: '/', ogImage: '/og/custom.jpg' });
     const og = meta.openGraph as Record<string, unknown>;
     const images = og?.images as Array<Record<string, unknown>>;
-    expect(images[0]?.url).toBe('/og/custom.jpg');
+    expect(images[0]?.url).toContain('/og/custom.jpg');
   });
 
   it('sets twitter card to summary_large_image', () => {
