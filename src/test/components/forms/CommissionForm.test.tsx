@@ -7,11 +7,19 @@ vi.mock('@/lib/formspree', () => ({
   submitToFormspree: vi.fn(),
 }));
 
+// Shared push spy — same reference used by both the component and the assertion.
+const pushMock = vi.fn();
+vi.mock('next/navigation', () => ({
+  useRouter: () => ({ push: pushMock, replace: vi.fn(), back: vi.fn() }),
+  usePathname: () => '/',
+}));
+
 import { submitToFormspree } from '@/lib/formspree';
 
 describe('CommissionForm', () => {
   beforeEach(() => {
     vi.clearAllMocks();
+    pushMock.mockReset();
   });
 
   it('renders the form with accessible label', () => {
@@ -161,6 +169,126 @@ describe('CommissionForm', () => {
     fireEvent.click(screen.getByRole('button', { name: /send commission inquiry/i }));
     await waitFor(() => {
       expect(screen.getByLabelText(/^name/i)).toHaveAttribute('aria-invalid', 'true');
+    });
+  });
+
+  // ── Lines 152-160: onMouseEnter / onMouseLeave on dropdown <li> items ────
+
+  function openSizeDropdown() {
+    const btn = screen.getAllByRole('combobox').find((el) => el.tagName === 'BUTTON')!;
+    fireEvent.click(btn);
+    return screen.getByRole('listbox');
+  }
+
+  function getFirstOption(listbox: HTMLElement) {
+    return listbox.querySelector('[role="option"]') as HTMLElement;
+  }
+
+  it('onMouseEnter highlights an unselected option (lines 152-154)', () => {
+    render(<CommissionForm />);
+    const listbox = openSizeDropdown();
+    const option = getFirstOption(listbox);
+
+    fireEvent.mouseEnter(option);
+
+    expect(option.style.background).toBe('var(--color-paper-100)');
+    expect(option.style.opacity).toBe('0.9');
+  });
+
+  it('onMouseEnter does not change style on the already-selected option (line 152 branch)', () => {
+    render(<CommissionForm />);
+    const listbox = openSizeDropdown();
+    const option = getFirstOption(listbox);
+
+    // Select the option first, then re-open the dropdown
+    fireEvent.click(option);
+    const listbox2 = openSizeDropdown();
+    const selectedOption = getFirstOption(listbox2);
+
+    const bgBefore = selectedOption.style.background;
+    const opacityBefore = selectedOption.style.opacity;
+    fireEvent.mouseEnter(selectedOption);
+
+    expect(selectedOption.style.background).toBe(bgBefore);
+    expect(selectedOption.style.opacity).toBe(opacityBefore);
+  });
+
+  it('onMouseLeave resets an unselected option to transparent (lines 157-160)', () => {
+    render(<CommissionForm />);
+    const listbox = openSizeDropdown();
+    const option = getFirstOption(listbox);
+
+    fireEvent.mouseEnter(option);
+    fireEvent.mouseLeave(option);
+
+    expect(option.style.background).toBe('transparent');
+    expect(option.style.opacity).toBe('0.65');
+  });
+
+  it('onMouseLeave does not reset style on the already-selected option (line 158 branch)', () => {
+    render(<CommissionForm />);
+    const listbox = openSizeDropdown();
+    const option = getFirstOption(listbox);
+
+    fireEvent.click(option);
+    const listbox2 = openSizeDropdown();
+    const selectedOption = getFirstOption(listbox2);
+
+    fireEvent.mouseEnter(selectedOption);
+    const bgAfterEnter = selectedOption.style.background;
+    fireEvent.mouseLeave(selectedOption);
+
+    // Should stay unchanged — the leave guard skips selected items
+    expect(selectedOption.style.background).toBe(bgAfterEnter);
+  });
+
+  // ── Line 217: router.push on successful submission ────────────────────────
+
+  it('redirects to /booking/thanks on successful submission (line 217)', async () => {
+    vi.mocked(submitToFormspree).mockResolvedValue({ ok: true });
+
+    const user = userEvent.setup();
+    render(<CommissionForm />);
+
+    await user.type(screen.getByLabelText(/^name/i), 'Jane');
+    await user.type(screen.getByLabelText(/email/i), 'jane@example.com');
+    await user.type(screen.getByLabelText(/describe your idea/i), 'A wind-swept swordsman');
+    await user.click(screen.getByRole('checkbox'));
+
+    const origGet = FormData.prototype.get;
+    FormData.prototype.get = function (key: string) {
+      if (key === 'size') return 'Palm-sized — 5–10 cm';
+      return origGet.call(this, key);
+    };
+    fireEvent.submit(screen.getByRole('form', { name: 'Commission inquiry' }));
+    FormData.prototype.get = origGet;
+
+    await waitFor(() => {
+      expect(pushMock).toHaveBeenCalledWith('/booking/thanks');
+    });
+  });
+
+  it('shows fallback error message when submission fails with no error string (line 219-223)', async () => {
+    vi.mocked(submitToFormspree).mockResolvedValue({ ok: false });
+
+    const user = userEvent.setup();
+    render(<CommissionForm />);
+
+    await user.type(screen.getByLabelText(/^name/i), 'Jane');
+    await user.type(screen.getByLabelText(/email/i), 'jane@example.com');
+    await user.type(screen.getByLabelText(/describe your idea/i), 'A wind-swept swordsman');
+    await user.click(screen.getByRole('checkbox'));
+
+    const origGet = FormData.prototype.get;
+    FormData.prototype.get = function (key: string) {
+      if (key === 'size') return 'Palm-sized — 5–10 cm';
+      return origGet.call(this, key);
+    };
+    fireEvent.submit(screen.getByRole('form', { name: 'Commission inquiry' }));
+    FormData.prototype.get = origGet;
+
+    await waitFor(() => {
+      expect(screen.getByText(/that did not send/i)).toBeInTheDocument();
     });
   });
 });
