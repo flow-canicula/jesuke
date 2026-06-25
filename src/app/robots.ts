@@ -9,8 +9,14 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/booking/thanks/', '/professional/thanks/', '/privacy/'],
+        disallow: ['/_next/', '/api/'],
       },
+      { userAgent: 'GPTBot', allow: '/' },
+      { userAgent: 'ClaudeBot', allow: '/' },
+      { userAgent: 'Google-Extended', allow: '/' },
+      { userAgent: 'PerplexityBot', allow: '/' },
+      { userAgent: 'YouBot', allow: '/' },
+      { userAgent: 'ChatGPT-User', allow: '/' },
     ],
     sitemap: `${SITE_URL}/sitemap.xml`,
   };
