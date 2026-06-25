@@ -23,3 +23,7 @@ Thumbs.db
 
 # TypeScript incremental build info
 tsconfig.tsbuildinfo
+
+# Vitest coverage output
+coverage/
+*.lcov
