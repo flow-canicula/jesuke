@@ -9,8 +9,23 @@ import { FLASH } from '@/content/work';
 export const metadata: Metadata = buildMetadata({
   title: 'Work',
   description:
-    'The full flash catalogue — anime and manga-inspired blackwork and fine-line tattoos. Browse available pieces and custom commissions.',
+    'Browse the full catalogue of anime, manga & manhwa tattoos by Jesuke — Philippines. Blackwork, fine-line, healed results, and available flash. Every piece, one artist.',
   canonical: '/work',
+  keywords: [
+    'anime tattoo portfolio',
+    'manga tattoo gallery',
+    'anime blackwork tattoo',
+    'fine line anime tattoo',
+    'manga blackwork Philippines',
+    'anime flash tattoo',
+    'manhwa tattoo art',
+    'dark manga tattoo',
+    'blackwork tattoo Philippines',
+    'anime tattoo catalogue',
+    'Jesuke work',
+    'healed anime tattoo',
+    'anime tattoo design',
+  ],
 });
 
 const breadcrumbs = [

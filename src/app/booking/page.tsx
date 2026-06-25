@@ -9,8 +9,22 @@ import { buildMetadata } from '@/lib/seo';
 export const metadata: Metadata = buildMetadata({
   title: 'Commission inquiry',
   description:
-    "Book a custom anime and manga-inspired tattoo piece with Jesuke. Describe your idea, size, and placement — we'll take it from there.",
+    'Book a custom anime, manga or manhwa tattoo with Jesuke in the Philippines. Blackwork and fine-line only. Describe your idea — no finished brief needed.',
   canonical: '/booking',
+  keywords: [
+    'book anime tattoo Philippines',
+    'anime tattoo commission',
+    'custom anime tattoo Manila',
+    'manga tattoo booking',
+    'anime tattoo appointment Philippines',
+    'custom manga tattoo',
+    'anime tattoo inquiry',
+    'book tattoo artist Philippines',
+    'anime tattoo Bulacan',
+    'custom blackwork anime tattoo',
+    'manhwa tattoo commission',
+    'Jesuke commission',
+  ],
 });
 
 const breadcrumbs = [

@@ -3,6 +3,7 @@
 import { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import type { FlashPiece } from '@/content/work';
+import { CATEGORY_LABEL } from '@/content/work';
 
 type LightboxProps = {
   piece: FlashPiece;
@@ -92,14 +93,43 @@ export function Lightbox({ piece, basePath = '', onClose }: LightboxProps) {
           />
         </div>
 
-        {/* Placement */}
-        <div className="px-6 py-4 border-t hairline flex items-center gap-6">
-          {piece.placement && (
-            <>
-              <span className="eyebrow text-ink-100 opacity-30" style={{ fontSize: '0.6rem' }}>Placement</span>
-              <p className="eyebrow text-ink-100 opacity-60">{piece.placement}</p>
-            </>
-          )}
+        {/* Meta strip */}
+        <div className="px-6 py-4 border-t hairline">
+          <div className="flex items-start justify-between gap-6">
+            {/* Left — index + series */}
+            <div className="flex flex-col gap-1">
+              <span
+                className="font-mono tabular-nums"
+                style={{ fontSize: '0.58rem', letterSpacing: '0.2em', color: 'var(--color-seal)', opacity: 0.8 }}
+              >
+                {piece.index}
+              </span>
+              <span
+                className="eyebrow"
+                style={{ fontSize: '0.7rem', color: 'var(--color-ink-100)', opacity: 0.65 }}
+              >
+                {CATEGORY_LABEL[piece.category]}
+              </span>
+            </div>
+
+            {/* Right — placement + attribution */}
+            <div className="flex flex-col gap-1 items-end text-right">
+              {piece.placement && (
+                <span
+                  className="eyebrow"
+                  style={{ fontSize: '0.7rem', color: 'var(--color-ink-100)', opacity: 0.45 }}
+                >
+                  {piece.placement}
+                </span>
+              )}
+              <span
+                className="font-mono"
+                style={{ fontSize: '0.58rem', letterSpacing: '0.18em', color: 'var(--color-ink-100)', opacity: 0.2 }}
+              >
+                Jesuke
+              </span>
+            </div>
+          </div>
         </div>
       </div>
     </div>

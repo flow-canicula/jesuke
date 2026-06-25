@@ -9,8 +9,20 @@ import { buildMetadata } from '@/lib/seo';
 export const metadata: Metadata = buildMetadata({
   title: 'Professional inquiry',
   description:
-    'Collaborations, flash licensing, press, and other professional arrangements. Reach Jesuke through the professional inquiry form.',
+    'Collaborate with Jesuke — anime tattoo artist, Philippines. Guest spots, flash licensing, press, and studio partnerships. Use the professional inquiry form.',
   canonical: '/professional',
+  keywords: [
+    'anime tattoo artist collaboration',
+    'tattoo flash licensing Philippines',
+    'anime tattoo press',
+    'tattoo artist collaboration Philippines',
+    'anime tattoo studio partnership',
+    'manga tattoo licensing',
+    'guest spot anime tattoo artist',
+    'Jesuke professional',
+    'anime tattoo convention Philippines',
+    'tattoo artist trade inquiry',
+  ],
 });
 
 const breadcrumbs = [

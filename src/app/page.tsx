@@ -13,7 +13,23 @@ import { FAQ } from '@/content/faq';
 
 export const metadata: Metadata = buildMetadata({
   canonical: '/',
-  ogImage: '/og/default.png',
+  description:
+    'The #1 anime tattoo artist in the Philippines. Jesuke does custom anime, manga & manhwa blackwork and fine-line tattoos in Bulacan. Book your piece now.',
+  keywords: [
+    'anime tattoo',
+    'manga tattoo',
+    'manhwa tattoo',
+    'anime tattoo Philippines',
+    'anime tattoo Manila',
+    'anime tattoo Bulacan',
+    'manga blackwork tattoo',
+    'anime tattoo artist Philippines',
+    'custom anime tattoo',
+    'fine line anime tattoo',
+    'blackwork anime tattoo',
+    'Jesuke tattoo',
+    'anime inspired tattoo',
+  ],
 });
 
 export default function ArtistPage() {

@@ -4,6 +4,7 @@ import { useState, useRef } from 'react';
 import Image from 'next/image';
 import { Lightbox } from './Lightbox';
 import type { FlashPiece } from '@/content/work';
+import { CATEGORY_LABEL } from '@/content/work';
 
 type GalleryGridProps = {
   pieces: FlashPiece[];
@@ -58,12 +59,36 @@ export function GalleryGrid({ pieces, basePath = '' }: GalleryGridProps) {
                 />
               </div>
 
-              {/* Placement */}
-              <div className="p-4 border-t hairline">
+              {/* Meta strip */}
+              <div className="px-4 py-3 border-t hairline flex items-baseline justify-between gap-3">
+                <div className="flex items-baseline gap-3 min-w-0">
+                  <span
+                    className="font-mono shrink-0 tabular-nums"
+                    style={{ fontSize: '0.6rem', letterSpacing: '0.18em', color: 'var(--color-seal)', opacity: 0.7 }}
+                  >
+                    {piece.index}
+                  </span>
+                  <span
+                    className="eyebrow truncate"
+                    style={{ fontSize: '0.65rem', color: 'var(--color-ink-100)', opacity: 0.45 }}
+                  >
+                    {CATEGORY_LABEL[piece.category]}
+                  </span>
+                </div>
                 {piece.placement ? (
-                  <p className="eyebrow text-ink-100 opacity-40">{piece.placement}</p>
+                  <span
+                    className="eyebrow shrink-0"
+                    style={{ fontSize: '0.65rem', color: 'var(--color-ink-100)', opacity: 0.28 }}
+                  >
+                    {piece.placement}
+                  </span>
                 ) : (
-                  <p className="eyebrow text-ink-100 opacity-20">—</p>
+                  <span
+                    className="font-mono shrink-0"
+                    style={{ fontSize: '0.6rem', color: 'var(--color-ink-100)', opacity: 0.15 }}
+                  >
+                    —
+                  </span>
                 )}
               </div>
             </button>

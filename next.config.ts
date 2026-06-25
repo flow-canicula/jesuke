@@ -1,13 +1,16 @@
 import type { NextConfig } from 'next';
 
+// GitHub Pages needs a /jesuke basePath and a forced static export.
+// Vercel runs Next.js natively — no static export, no basePath.
 const isGithubPages = process.env.NEXT_PUBLIC_SITE_URL?.includes('github.io');
 const basePath = isGithubPages ? '/jesuke' : '';
 
 const nextConfig: NextConfig = {
-  output: 'export',
+  ...(isGithubPages && { output: 'export' }),
   trailingSlash: true,
   images: {
-    unoptimized: true,
+    // Keep unoptimized on GitHub Pages (no server); Vercel Image Optimization works natively.
+    unoptimized: isGithubPages,
   },
   reactStrictMode: true,
   env: {

@@ -1,5 +1,18 @@
 export type WorkCategory = 'healed' | 'junji' | 'waifu' | 'general' | 'designs' | 'stencils' | 'may-oct-2025' | 'old-designs' | 'blade-series' | 'ragnarok-series';
 
+export const CATEGORY_LABEL: Record<WorkCategory, string> = {
+  'healed':          'Healed results',
+  'junji':           'Junji Ito',
+  'waifu':           'Waifu',
+  'general':         'Mixed work',
+  'designs':         'Designs',
+  'stencils':        'Stencils',
+  'may-oct-2025':    'May – Oct 2025',
+  'old-designs':     'Archive',
+  'blade-series':    'Demon Slayer',
+  'ragnarok-series': 'Record of Ragnarok',
+};
+
 export type FlashPiece = {
   id: string;
   index: string;

@@ -7,6 +7,7 @@ type BuildMetadataOptions = {
   canonical: string;
   ogImage?: string;
   ogImageAlt?: string;
+  keywords?: string[];
   noIndex?: boolean;
 };
 
@@ -16,6 +17,7 @@ export function buildMetadata({
   canonical,
   ogImage,
   ogImageAlt,
+  keywords,
   noIndex = false,
 }: BuildMetadataOptions): Metadata {
   const resolvedTitle = title ? `${title} — ${SITE_NAME}` : SITE_NAME;
@@ -28,6 +30,7 @@ export function buildMetadata({
     metadataBase: new URL(SITE_URL),
     title: resolvedTitle,
     description: resolvedDescription,
+    ...(keywords && { keywords }),
     alternates: {
       canonical: canonicalUrl,
     },
