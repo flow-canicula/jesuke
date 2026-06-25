@@ -9,7 +9,7 @@ export const SITE_DESCRIPTION =
 export const SOCIAL = {
   instagram: 'https://www.instagram.com/jesuke_anime',
   instagramHandle: '@jesuke_anime',
-  facebook: 'https://www.facebook.com/jesuke',
+  facebook: 'https://www.facebook.com/jesukeanime',
 } as const;
 
 export const CONTACT = {
