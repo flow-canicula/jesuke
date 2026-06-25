@@ -5,6 +5,8 @@ import { Footer } from '@/components/layout/Footer';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { buildPersonSchema, buildWebSiteSchema } from '@/lib/jsonld';
 import { SITE_NAME, SITE_URL, SITE_DESCRIPTION, OG_DEFAULTS } from '@/content/site';
+
+const OG_IMAGE_URL = `${SITE_URL}${OG_DEFAULTS.image}`;
 import './globals.css';
 
 const base = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
@@ -45,7 +47,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: OG_DEFAULTS.image,
+        url: OG_IMAGE_URL,
         width: OG_DEFAULTS.imageWidth,
         height: OG_DEFAULTS.imageHeight,
         alt: OG_DEFAULTS.imageAlt,
@@ -54,6 +56,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
+    images: [OG_IMAGE_URL],
   },
 };
 

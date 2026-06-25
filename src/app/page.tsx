@@ -13,8 +13,9 @@ import { FAQ } from '@/content/faq';
 
 export const metadata: Metadata = buildMetadata({
   canonical: '/',
+  title: 'Anime & Manga Tattoo Artist — Philippines',
   description:
-    'The #1 anime tattoo artist in the Philippines. Jesuke does custom anime, manga & manhwa blackwork and fine-line tattoos in Bulacan. Book your piece now.',
+    'Jesuke is the Philippines\' premier anime, manga & manhwa tattoo artist. Custom blackwork and fine-line pieces in Bulacan. Book a commission or browse the catalogue.',
   keywords: [
     'anime tattoo',
     'manga tattoo',

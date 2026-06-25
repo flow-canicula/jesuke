@@ -22,7 +22,9 @@ export function buildMetadata({
 }: BuildMetadataOptions): Metadata {
   const resolvedTitle = title ? `${title} — ${SITE_NAME}` : SITE_NAME;
   const resolvedDescription = description ?? SITE_DESCRIPTION;
-  const resolvedImage = ogImage ?? OG_DEFAULTS.image;
+  const rawImage = ogImage ?? OG_DEFAULTS.image;
+  // Always use an absolute URL so scrapers (Facebook, Twitter, Slack) never get a relative path
+  const resolvedImage = rawImage.startsWith('http') ? rawImage : `${SITE_URL}${rawImage}`;
   const resolvedImageAlt = ogImageAlt ?? OG_DEFAULTS.imageAlt;
   const canonicalUrl = `${SITE_URL}${canonical}`;
 

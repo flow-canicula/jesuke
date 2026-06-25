@@ -1,6 +1,5 @@
-// TODO: update SITE_URL when real domain is confirmed
 export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.jesuke.ink';
+  process.env.NEXT_PUBLIC_SITE_URL ?? 'https://jesukeanimetattoo.skaldris.com';
 
 export const SITE_NAME = 'Jesuke';
 
