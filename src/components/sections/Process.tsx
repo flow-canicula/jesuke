@@ -1,3 +1,6 @@
+'use client';
+import { useReveal } from '@/lib/useReveal';
+
 const STEPS = [
   {
     n: '01',
@@ -27,8 +30,11 @@ const STEPS = [
 ] as const;
 
 export function Process() {
+  const sectionRef = useReveal(0.1);
+
   return (
     <section
+      ref={sectionRef as React.RefObject<HTMLElement>}
       className="relative py-28 md:py-40 overflow-hidden"
       aria-labelledby="process-heading"
       style={{ background: 'var(--color-ink-900)' }}
@@ -39,15 +45,16 @@ export function Process() {
       <div className="relative max-w-6xl mx-auto px-6">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-20">
           <div>
-            <p className="eyebrow mb-6" style={{ color: 'var(--color-ink-100)', opacity: 0.4 }}>
+            <p className="eyebrow mb-6" style={{ color: 'var(--color-ink-100)', opacity: 0.4 }} data-reveal="rise">
               How it works
             </p>
             <h2
               id="process-heading"
-              className="font-display leading-tight"
+              className="font-display leading-tight overflow-hidden"
               style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', color: 'var(--color-paper-50)', maxWidth: '16ch' }}
             >
-              From inquiry to healed ink.
+              <span className="block" data-reveal="wipe" data-delay="1">From inquiry</span>
+              <span className="block" data-reveal="wipe" data-delay="2">to healed ink.</span>
             </h2>
           </div>
           {/* Large step count — decorative */}
@@ -55,17 +62,21 @@ export function Process() {
             className="font-display leading-none select-none"
             style={{ fontSize: 'clamp(4rem, 10vw, 7rem)', color: 'var(--color-ink-800)', opacity: 0.8 }}
             aria-hidden="true"
+            data-reveal="rise"
+            data-delay="3"
           >
             05
           </p>
         </div>
 
         <ol role="list" className="space-y-0">
-          {STEPS.map((step) => (
+          {STEPS.map((step, i) => (
             <li
               key={step.n}
               className="grid grid-cols-[auto_1fr] md:grid-cols-[80px_1fr_2fr] items-start gap-6 md:gap-12 py-8 border-t"
               style={{ borderColor: 'var(--color-line)' }}
+              data-reveal="slide-left"
+              data-delay={String((i + 1) as 1 | 2 | 3 | 4 | 5) as string}
             >
               {/* Step number */}
               <p

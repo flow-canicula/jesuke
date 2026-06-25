@@ -2,12 +2,15 @@
 
 import { useState } from 'react';
 import { FAQ } from '@/content/faq';
+import { useReveal } from '@/lib/useReveal';
 
 export function Faq() {
   const [openId, setOpenId] = useState<string | null>(null);
+  const sectionRef = useReveal(0.1);
 
   return (
     <section
+      ref={sectionRef as React.RefObject<HTMLElement>}
       className="relative py-28 md:py-40 overflow-hidden"
       aria-labelledby="faq-heading"
       style={{ background: 'var(--color-paper-50)' }}
@@ -27,20 +30,21 @@ export function Faq() {
         <div className="flex flex-col md:flex-row md:items-start gap-16 md:gap-24">
           {/* Left — heading fixed */}
           <div className="md:w-72 flex-shrink-0">
-            <p className="eyebrow mb-6" style={{ color: 'var(--color-paper-700)', opacity: 0.4 }}>
+            <p className="eyebrow mb-6" style={{ color: 'var(--color-paper-700)', opacity: 0.4 }} data-reveal="rise">
               Questions
             </p>
             <h2
               id="faq-heading"
-              className="font-display leading-tight"
+              className="font-display leading-tight overflow-hidden"
               style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', color: 'var(--color-paper-700)' }}
             >
-              Common questions.
+              <span className="block" data-reveal="wipe" data-delay="1">Common</span>
+              <span className="block" data-reveal="wipe" data-delay="2">questions.</span>
             </h2>
           </div>
 
           {/* Right — accordion */}
-          <dl className="flex-1 divide-y" style={{ borderColor: 'rgba(58,58,51,0.15)' }}>
+          <dl className="flex-1 divide-y" style={{ borderColor: 'rgba(58,58,51,0.15)' }} data-reveal="rise" data-delay="3">
             {FAQ.map((entry) => {
               const isOpen = openId === entry.id;
               return (

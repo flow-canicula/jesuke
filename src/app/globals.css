@@ -142,4 +142,152 @@
   .hairline {
     border-color: var(--color-line);
   }
+
+  /* ── Scroll-reveal base ─────────────────────────────────────────────────── */
+  /* Elements start hidden; JS adds .in-view to trigger the animation */
+
+  [data-reveal] {
+    animation-play-state: paused;
+    animation-fill-mode: both;
+  }
+  [data-reveal].in-view {
+    animation-play-state: running;
+  }
+
+  /* Clip-path wipe — heading lines sweep up from below the baseline */
+  [data-reveal="wipe"] {
+    clip-path: inset(0 0 100% 0);
+    animation: wipe-up 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  @keyframes wipe-up {
+    from { clip-path: inset(0 0 100% 0); }
+    to   { clip-path: inset(0 0 0% 0); }
+  }
+
+  /* Fade + heavy rise — paragraphs and body copy */
+  [data-reveal="rise"] {
+    opacity: 0;
+    transform: translateY(40px);
+    animation: rise 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(40px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Slide from left — process steps, list items */
+  [data-reveal="slide-left"] {
+    opacity: 0;
+    transform: translateX(-48px);
+    animation: slide-left 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  @keyframes slide-left {
+    from { opacity: 0; transform: translateX(-48px); }
+    to   { opacity: 1; transform: translateX(0); }
+  }
+
+  /* Scale + blur — gallery cards and image panels */
+  [data-reveal="scale"] {
+    opacity: 0;
+    transform: scale(0.92);
+    filter: blur(6px);
+    animation: scale-in 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  @keyframes scale-in {
+    from { opacity: 0; transform: scale(0.92); filter: blur(6px); }
+    to   { opacity: 1; transform: scale(1);    filter: blur(0); }
+  }
+
+  /* Horizontal line expand — decorative rules */
+  [data-reveal="line"] {
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: line-expand 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  @keyframes line-expand {
+    from { transform: scaleX(0); }
+    to   { transform: scaleX(1); }
+  }
+
+  /* Counter-wipe — clip sweeps in from the right edge */
+  [data-reveal="counter-wipe"] {
+    clip-path: inset(0 100% 0 0);
+    animation: counter-wipe 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  @keyframes counter-wipe {
+    from { clip-path: inset(0 100% 0 0); }
+    to   { clip-path: inset(0 0% 0 0); }
+  }
+
+  /* Slide from far left — heading line enters from off-screen left */
+  [data-reveal="slam-left"] {
+    opacity: 0;
+    transform: translateX(-80px);
+    animation: slam-left 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  @keyframes slam-left {
+    from { opacity: 0; transform: translateX(-80px); }
+    to   { opacity: 1; transform: translateX(0); }
+  }
+
+  /* Slide from far right — heading line enters from off-screen right */
+  [data-reveal="slam-right"] {
+    opacity: 0;
+    transform: translateX(80px);
+    animation: slam-right 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  @keyframes slam-right {
+    from { opacity: 0; transform: translateX(80px); }
+    to   { opacity: 1; transform: translateX(0); }
+  }
+
+  /* Hard drop with elastic bounce — dramatic vertical slam for headings */
+  [data-reveal="drop"] {
+    opacity: 0;
+    transform: translateY(-48px) scaleY(1.1);
+    animation: drop-in 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  }
+  @keyframes drop-in {
+    from { opacity: 0; transform: translateY(-48px) scaleY(1.1); }
+    60%  { opacity: 1; }
+    to   { opacity: 1; transform: translateY(0) scaleY(1); }
+  }
+
+  /* Individual letter ink-bleed — used via JS-rendered char spans */
+  @keyframes char-bleed {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+      filter: blur(3px);
+      color: var(--color-seal);
+    }
+    60% {
+      color: var(--color-seal);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+  }
+
+  .char-reveal {
+    display: inline-block;
+    opacity: 0;
+    animation: char-bleed 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-play-state: paused;
+  }
+  .char-reveal.in-view {
+    animation-play-state: running;
+  }
+
+  /* Stagger delay helpers */
+  [data-delay="1"] { animation-delay: 80ms; }
+  [data-delay="2"] { animation-delay: 160ms; }
+  [data-delay="3"] { animation-delay: 240ms; }
+  [data-delay="4"] { animation-delay: 320ms; }
+  [data-delay="5"] { animation-delay: 400ms; }
+  [data-delay="6"] { animation-delay: 480ms; }
+  [data-delay="7"] { animation-delay: 560ms; }
+  [data-delay="8"] { animation-delay: 640ms; }
 }

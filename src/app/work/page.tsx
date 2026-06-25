@@ -46,7 +46,7 @@ export default function WorkPage() {
           </h1>
         </header>
 
-        <GalleryGrid pieces={FLASH} basePath={process.env.NEXT_PUBLIC_BASE_PATH ?? ''} />
+        <GalleryGrid pieces={FLASH} basePath={process.env.NEXT_PUBLIC_BASE_PATH ?? ''} animate />
       </div>
 
       <JsonLd schema={buildBreadcrumbSchema(breadcrumbs)} />

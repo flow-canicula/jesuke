@@ -1,10 +1,15 @@
+'use client';
 import Link from 'next/link';
 import Image from 'next/image';
 import { img } from '@/lib/imageLoader';
+import { useReveal } from '@/lib/useReveal';
 
 export function CtaDoors() {
+  const sectionRef = useReveal(0.1);
+
   return (
     <section
+      ref={sectionRef as React.RefObject<HTMLElement>}
       className="relative overflow-hidden"
       aria-labelledby="cta-heading"
       style={{ minHeight: '80vh' }}
@@ -31,10 +36,10 @@ export function CtaDoors() {
       <div className="relative z-10 max-w-6xl mx-auto px-6 py-24 md:py-36">
         <h2
           id="cta-heading"
-          className="font-display leading-tight mb-20"
+          className="font-display leading-tight mb-20 overflow-hidden"
           style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', color: 'var(--color-paper-50)' }}
         >
-          Two ways in.
+          <span className="block" data-reveal="wipe">Two ways in.</span>
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -48,6 +53,8 @@ export function CtaDoors() {
               WebkitBackdropFilter: 'blur(8px)',
               minHeight: '380px',
             }}
+            data-reveal="rise"
+            data-delay="1"
           >
             <div>
               <p className="eyebrow mb-5" style={{ color: 'var(--color-ink-100)', opacity: 0.45 }}>
@@ -83,6 +90,8 @@ export function CtaDoors() {
               WebkitBackdropFilter: 'blur(8px)',
               minHeight: '380px',
             }}
+            data-reveal="rise"
+            data-delay="2"
           >
             <div>
               <p className="eyebrow mb-5" style={{ color: 'var(--color-ink-100)', opacity: 0.45 }}>

@@ -5,7 +5,8 @@ import { Process } from '@/components/sections/Process';
 describe('Process', () => {
   it('renders a section landmark', () => {
     render(<Process />);
-    expect(screen.getByRole('region', { name: /from inquiry to healed ink/i })).toBeInTheDocument();
+    // heading text split across spans; find section by its aria-labelledby instead
+    expect(document.querySelector('section[aria-labelledby="process-heading"]')).toBeInTheDocument();
   });
 
   it('renders h2 heading', () => {

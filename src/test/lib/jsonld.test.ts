@@ -56,8 +56,8 @@ describe('buildServiceSchema', () => {
 
 describe('buildFaqSchema', () => {
   const fakeEntries = [
-    { question: 'Do you do color?', answer: 'Blackwork and fine-line only.' },
-    { question: 'Where are you based?', answer: 'Bulacan, Philippines.' },
+    { id: 'color', question: 'Do you do color?', answer: 'Blackwork and fine-line only.' },
+    { id: 'location', question: 'Where are you based?', answer: 'Bulacan, Philippines.' },
   ];
 
   it('returns @type FAQPage', () => {

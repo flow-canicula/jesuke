@@ -28,6 +28,7 @@ describe('Manifesto', () => {
 
   it('renders the eyebrow label', () => {
     render(<Manifesto />);
-    expect(screen.getByText('The practice')).toBeInTheDocument();
+    // CharReveal renders each char as a span; the wrapper span has aria-label
+    expect(screen.getByLabelText('The practice')).toBeInTheDocument();
   });
 });

@@ -5,16 +5,19 @@ import Image from 'next/image';
 import { Lightbox } from './Lightbox';
 import type { FlashPiece } from '@/content/work';
 import { CATEGORY_LABEL } from '@/content/work';
+import { useReveal } from '@/lib/useReveal';
 
 type GalleryGridProps = {
   pieces: FlashPiece[];
   basePath?: string;
+  /** When true each card gets a scroll-triggered scale+blur reveal */
+  animate?: boolean;
 };
 
-export function GalleryGrid({ pieces, basePath = '' }: GalleryGridProps) {
+export function GalleryGrid({ pieces, basePath = '', animate = false }: GalleryGridProps) {
   const [activePiece, setActivePiece] = useState<FlashPiece | null>(null);
-  // Track which button opened the lightbox so we can restore focus on close
   const triggerRefs = useRef<Map<string, HTMLButtonElement>>(new Map());
+  const gridRef = useReveal(0.05);
 
   function openLightbox(piece: FlashPiece) {
     setActivePiece(piece);
@@ -24,7 +27,6 @@ export function GalleryGrid({ pieces, basePath = '' }: GalleryGridProps) {
     const id = activePiece?.id;
     setActivePiece(null);
     if (id) {
-      // Restore focus to the trigger that opened the lightbox
       setTimeout(() => triggerRefs.current.get(id)?.focus(), 0);
     }
   }
@@ -32,12 +34,22 @@ export function GalleryGrid({ pieces, basePath = '' }: GalleryGridProps) {
   return (
     <>
       <div
+        ref={animate ? (gridRef as React.RefObject<HTMLDivElement>) : undefined}
         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-line"
         role="list"
         aria-label="Flash catalogue"
       >
-        {pieces.map((piece) => (
-          <article key={piece.id} role="listitem">
+        {pieces.map((piece, i) => (
+          <article
+            key={piece.id}
+            role="listitem"
+            {...(animate
+              ? {
+                  'data-reveal': 'scale',
+                  'data-delay': String(Math.min((i % 6) + 1, 8)),
+                }
+              : {})}
+          >
             <button
               ref={(el) => {
                 if (el) triggerRefs.current.set(piece.id, el);
@@ -55,7 +67,7 @@ export function GalleryGrid({ pieces, basePath = '' }: GalleryGridProps) {
                   alt={piece.alt}
                   width={piece.imageWidth}
                   height={piece.imageHeight}
-                  className="object-cover w-full h-full opacity-80 group-hover:opacity-100 transition-opacity duration-300"
+                  className="object-cover w-full h-full opacity-80 group-hover:opacity-100 transition-opacity duration-300 group-hover:scale-[1.03] transition-transform"
                 />
               </div>
 
