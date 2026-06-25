@@ -4,6 +4,7 @@ import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { buildPersonSchema, buildWebSiteSchema } from '@/lib/jsonld';
+import { Analytics } from '@vercel/analytics/react';
 import { SITE_NAME, SITE_URL, SITE_DESCRIPTION, OG_DEFAULTS } from '@/content/site';
 
 const OG_IMAGE_URL = `${SITE_URL}${OG_DEFAULTS.image}`;
@@ -84,6 +85,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         </main>
         <Footer />
         <JsonLd schema={[buildPersonSchema(), buildWebSiteSchema()]} />
+        <Analytics />
       </body>
     </html>
   );
