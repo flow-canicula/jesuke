@@ -1,10 +1,11 @@
 export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? 'https://jesukeanimetattoo.skaldris.com';
 
+
 export const SITE_NAME = 'Jesuke';
 
 export const SITE_DESCRIPTION =
-  'Jesuke — anime, manga & manhwa tattoo artist in the Philippines. Blackwork and fine-line only. Custom pieces and flash. Book a commission or browse the catalogue.';
+  'Jesuke — anime, manga & manhwa tattoo artist in Metro Manila and Bulacan, Philippines. Blackwork and fine-line only. Custom pieces and flash. Book a commission or browse the catalogue.';
 
 export const SOCIAL = {
   instagram: 'https://www.instagram.com/jesuke_anime',

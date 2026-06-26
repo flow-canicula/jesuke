@@ -41,4 +41,16 @@ export const FAQ: FaqEntry[] = [
     answer:
       'Jesuke works from a fixed location. Sessions happen where the setting is right and the person is right — safety and trust are non-negotiable. Visiting clients are welcome. Reach out first.',
   },
+  {
+    id: 'faq-location',
+    question: 'Where is Jesuke located?',
+    answer:
+      'Jesuke is based in Metro Manila and Bulacan, Philippines. Sessions are available by appointment — submit a commission inquiry to arrange.',
+  },
+  {
+    id: 'faq-metro-manila',
+    question: 'Do you accept clients from Metro Manila?',
+    answer:
+      'Yes. Clients from Metro Manila, NCR, and the surrounding regions are welcome. Bulacan is a short drive from most parts of Metro Manila. Book through the commission inquiry form to get started.',
+  },
 ];

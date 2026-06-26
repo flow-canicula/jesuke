@@ -19,9 +19,48 @@ export function buildPersonSchema(): JsonLdObject {
       'Anime-inspired illustration',
       'Manga-inspired linework',
     ],
-    description: 'Tattoo artist based in Bulacan, Philippines who exclusively creates anime, manga, and manhwa tattoos. Original blackwork and fine-line pieces only — no other styles accepted.',
+    description: 'Tattoo artist based in Metro Manila and Bulacan, Philippines, who exclusively creates anime, manga, and manhwa tattoos. Original blackwork and fine-line pieces only — no other styles accepted.',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Metro Manila',
+      addressRegion: 'Bulacan',
+      addressCountry: 'PH',
+    },
+    areaServed: [
+      { '@type': 'AdministrativeArea', name: 'Metro Manila' },
+      { '@type': 'AdministrativeArea', name: 'National Capital Region' },
+      { '@type': 'City', name: 'Bulacan' },
+    ],
     sameAs: [SOCIAL.instagram, SOCIAL.facebook],
     url: SITE_URL,
+  };
+}
+
+export function buildLocalBusinessSchema(): JsonLdObject {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    '@id': `${SITE_URL}/#business`,
+    name: 'Jesuke Anime Tattoo',
+    description: 'Anime, manga, and manhwa tattoo artist based in Metro Manila and Bulacan, Philippines. Custom blackwork and fine-line pieces only.',
+    url: SITE_URL,
+    image: `${SITE_URL}/og/og-image.jpg`,
+    priceRange: '₱₱',
+    currenciesAccepted: 'PHP',
+    paymentAccepted: 'Cash, GCash',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Metro Manila',
+      addressRegion: 'Bulacan',
+      addressCountry: 'PH',
+    },
+    areaServed: [
+      { '@type': 'AdministrativeArea', name: 'Metro Manila' },
+      { '@type': 'AdministrativeArea', name: 'National Capital Region' },
+      { '@type': 'City', name: 'Bulacan' },
+    ],
+    sameAs: [SOCIAL.instagram, SOCIAL.facebook],
+    hasMap: `https://maps.google.com/?q=Bulacan,Philippines`,
   };
 }
 

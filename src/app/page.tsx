@@ -7,22 +7,26 @@ import { Faq } from '@/components/sections/Faq';
 import { NameBanner } from '@/components/sections/NameBanner';
 import { CtaDoors } from '@/components/sections/CtaDoors';
 import { JsonLd } from '@/components/seo/JsonLd';
-import { buildServiceSchema, buildFaqSchema } from '@/lib/jsonld';
+import { buildServiceSchema, buildFaqSchema, buildLocalBusinessSchema } from '@/lib/jsonld';
 import { buildMetadata } from '@/lib/seo';
 import { FAQ } from '@/content/faq';
 
 export const metadata: Metadata = buildMetadata({
   canonical: '/',
-  title: 'Anime & Manga Tattoo Artist — Philippines',
+  title: 'Anime & Manga Tattoo Artist — Metro Manila & Bulacan, Philippines',
   description:
-    'Jesuke is the Philippines\' premier anime, manga & manhwa tattoo artist. Custom blackwork and fine-line pieces in Bulacan. Book a commission or browse the catalogue.',
+    'Jesuke is Metro Manila and Bulacan\'s anime, manga & manhwa tattoo artist. Custom blackwork and fine-line pieces. Book a commission or browse the flash catalogue.',
   keywords: [
     'anime tattoo',
     'manga tattoo',
     'manhwa tattoo',
-    'anime tattoo Philippines',
+    'anime tattoo Metro Manila',
     'anime tattoo Manila',
     'anime tattoo Bulacan',
+    'anime tattoo Philippines',
+    'Metro Manila anime tattoo artist',
+    'anime tattoo artist Metro Manila',
+    'manga tattoo Metro Manila',
     'manga blackwork tattoo',
     'anime tattoo artist Philippines',
     'custom anime tattoo',
@@ -30,6 +34,7 @@ export const metadata: Metadata = buildMetadata({
     'blackwork anime tattoo',
     'Jesuke tattoo',
     'anime inspired tattoo',
+    'NCR anime tattoo',
   ],
 });
 
@@ -43,7 +48,7 @@ export default function ArtistPage() {
       <Process />
       <Faq />
       <CtaDoors />
-      <JsonLd schema={[buildServiceSchema(), buildFaqSchema(FAQ)]} />
+      <JsonLd schema={[buildServiceSchema(), buildFaqSchema(FAQ), buildLocalBusinessSchema()]} />
     </>
   );
 }
