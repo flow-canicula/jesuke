@@ -63,14 +63,18 @@ describe('useReveal', () => {
     expect(lastCallback).toBeNull();
   });
 
-  it('does nothing when the container has no [data-reveal] elements', () => {
-    const { result } = renderHook(() => useReveal());
+  it('does nothing when the container has no [data-reveal] elements (line 18)', () => {
     const root = document.createElement('div');
     document.body.appendChild(root);
-    act(() => {
-      (result.current as React.MutableRefObject<HTMLElement>).current = root;
+
+    // Attach the ref inline so the effect runs with an empty container
+    renderHook(() => {
+      const ref = useReveal();
+      (ref as React.MutableRefObject<HTMLElement>).current = root;
+      return ref;
     });
-    // Re-render to flush the effect
+
+    // The !targets.length guard fires — no observer is registered
     expect(lastCallback).toBeNull();
     document.body.removeChild(root);
   });
@@ -106,39 +110,79 @@ describe('useReveal', () => {
     document.body.removeChild(root);
   });
 
-  it('adds "in-view" class to an intersecting target and calls unobserve', () => {
-    // Test the observer callback logic directly — it is the unit under test.
+  it('adds "in-view" class to an intersecting target and calls unobserve (lines 22-25)', () => {
     const unobserveSpy = vi.fn();
-    const target = document.createElement('div');
+    class TrackingIO {
+      observe = vi.fn();
+      unobserve = unobserveSpy;
+      disconnect = vi.fn();
+      constructor(cb: IntersectionObserverCallback, opts?: IntersectionObserverInit) {
+        lastCallback = cb;
+        lastOptions = opts;
+      }
+    }
+    vi.stubGlobal('IntersectionObserver', TrackingIO);
 
-    // Replicate exactly what the hook registers as its callback
-    const observerCallback: IntersectionObserverCallback = (entries, observer) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
-          observer.unobserve(entry.target);
-        }
-      });
+    // Render a real container so the hook's effect runs and registers its callback
+    const root = makeContainer(1);
+    const target = root.querySelector<HTMLElement>('[data-reveal]')!;
+
+    const TestComponent = () => {
+      const ref = useReveal();
+      // Attach the ref synchronously so the effect picks it up
+      (ref as React.MutableRefObject<HTMLElement>).current = root;
+      return null;
     };
 
-    const fakeObserver = { unobserve: unobserveSpy } as unknown as IntersectionObserver;
-    observerCallback([makeEntry(target, true)], fakeObserver);
+    const { rerender } = renderHook(() => {
+      const ref = useReveal();
+      (ref as React.MutableRefObject<HTMLElement>).current = root;
+      return ref;
+    });
+
+    // lastCallback is now the real callback registered by the hook
+    expect(lastCallback).not.toBeNull();
+
+    act(() => {
+      lastCallback!([makeEntry(target, true)], new TrackingIO(() => {}) as unknown as IntersectionObserver);
+    });
 
     expect(target.classList.contains('in-view')).toBe(true);
     expect(unobserveSpy).toHaveBeenCalledWith(target);
+
+    document.body.removeChild(root);
   });
 
-  it('does not add "in-view" to a non-intersecting target', () => {
+  it('does not add "in-view" to a non-intersecting target (line 22-25 false branch)', () => {
+    const unobserveSpy = vi.fn();
+    class TrackingIO {
+      observe = vi.fn();
+      unobserve = unobserveSpy;
+      disconnect = vi.fn();
+      constructor(cb: IntersectionObserverCallback, opts?: IntersectionObserverInit) {
+        lastCallback = cb;
+        lastOptions = opts;
+      }
+    }
+    vi.stubGlobal('IntersectionObserver', TrackingIO);
+
     const root = makeContainer(1);
     const target = root.querySelector<HTMLElement>('[data-reveal]')!;
-    const observerInstance = new ControllableIO(() => {});
 
-    if (lastCallback) {
-      act(() => {
-        lastCallback!([makeEntry(target, false)], observerInstance as unknown as IntersectionObserver);
-      });
-    }
+    renderHook(() => {
+      const ref = useReveal();
+      (ref as React.MutableRefObject<HTMLElement>).current = root;
+      return ref;
+    });
+
+    expect(lastCallback).not.toBeNull();
+
+    act(() => {
+      lastCallback!([makeEntry(target, false)], new TrackingIO(() => {}) as unknown as IntersectionObserver);
+    });
+
     expect(target.classList.contains('in-view')).toBe(false);
+    expect(unobserveSpy).not.toHaveBeenCalled();
 
     document.body.removeChild(root);
   });
