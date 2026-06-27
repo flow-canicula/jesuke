@@ -62,10 +62,13 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/favicon.ico', sizes: '16x16 32x32 48x48' },
+      { url: '/favicon.ico', sizes: '48x48', type: 'image/x-icon' },
       { url: '/favicon-192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/favicon-512.png', sizes: '512x512', type: 'image/png' },
       { url: '/favicon.svg', type: 'image/svg+xml' },
     ],
+    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
+    shortcut: '/favicon.ico',
   },
   other: {
     'msvalidate.01': '5EE37C4475658ED39476D042A78E2C57',
