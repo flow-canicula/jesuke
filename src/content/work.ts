@@ -13,6 +13,14 @@ export const CATEGORY_LABEL: Record<WorkCategory, string> = {
   'ragnarok-series': 'Record of Ragnarok',
 };
 
+export type TattooStyle = 'blackwork' | 'fine-line' | 'blackwork & fine-line';
+
+export const STYLE_LABEL: Record<TattooStyle, string> = {
+  'blackwork':           'Blackwork',
+  'fine-line':           'Fine-line',
+  'blackwork & fine-line': 'Blackwork · Fine-line',
+};
+
 export type FlashPiece = {
   id: string;
   index: string;
@@ -22,6 +30,7 @@ export type FlashPiece = {
   imageHeight: number;
   category: WorkCategory;
   featured: boolean;
+  style: TattooStyle;
   placement?: string;
 };
 
@@ -36,6 +45,7 @@ export const FLASH: FlashPiece[] = [
     imageHeight: 1000,
     category: 'healed',
     featured: true,
+    style: 'blackwork',
     placement: 'Outer forearm',
   },
   {
@@ -47,6 +57,7 @@ export const FLASH: FlashPiece[] = [
     imageHeight: 1000,
     category: 'healed',
     featured: true,
+    style: 'fine-line',
     placement: 'Upper arm',
   },
   {
@@ -58,6 +69,7 @@ export const FLASH: FlashPiece[] = [
     imageHeight: 1200,
     category: 'healed',
     featured: true,
+    style: 'blackwork',
     placement: 'Calf',
   },
   {
@@ -69,6 +81,7 @@ export const FLASH: FlashPiece[] = [
     imageHeight: 1000,
     category: 'healed',
     featured: false,
+    style: 'blackwork',
     placement: 'Shin',
   },
   {
@@ -80,6 +93,7 @@ export const FLASH: FlashPiece[] = [
     imageHeight: 1000,
     category: 'healed',
     featured: false,
+    style: 'blackwork & fine-line',
     placement: 'Forearm',
   },
   {
@@ -91,6 +105,7 @@ export const FLASH: FlashPiece[] = [
     imageHeight: 1200,
     category: 'healed',
     featured: false,
+    style: 'blackwork',
     placement: 'Thigh',
   },
   {
@@ -102,6 +117,7 @@ export const FLASH: FlashPiece[] = [
     imageHeight: 600,
     category: 'healed',
     featured: false,
+    style: 'fine-line',
     placement: 'Wrist',
   },
   {
@@ -113,6 +129,7 @@ export const FLASH: FlashPiece[] = [
     imageHeight: 1100,
     category: 'healed',
     featured: false,
+    style: 'blackwork',
     placement: 'Inner forearm',
   },
   {
@@ -124,6 +141,7 @@ export const FLASH: FlashPiece[] = [
     imageHeight: 1000,
     category: 'healed',
     featured: false,
+    style: 'blackwork',
     placement: 'Shoulder',
   },
   {
@@ -135,6 +153,7 @@ export const FLASH: FlashPiece[] = [
     imageHeight: 1000,
     category: 'healed',
     featured: false,
+    style: 'fine-line',
     placement: 'Calf',
   },
 
@@ -148,6 +167,7 @@ export const FLASH: FlashPiece[] = [
     imageHeight: 1000,
     category: 'junji',
     featured: true,
+    style: 'blackwork',
     placement: 'Outer forearm',
   },
   {
@@ -159,6 +179,7 @@ export const FLASH: FlashPiece[] = [
     imageHeight: 1000,
     category: 'junji',
     featured: true,
+    style: 'blackwork',
     placement: 'Upper arm',
   },
   {
@@ -170,6 +191,7 @@ export const FLASH: FlashPiece[] = [
     imageHeight: 1000,
     category: 'junji',
     featured: false,
+    style: 'blackwork',
     placement: 'Thigh',
   },
   {
@@ -181,6 +203,7 @@ export const FLASH: FlashPiece[] = [
     imageHeight: 1000,
     category: 'junji',
     featured: false,
+    style: 'blackwork',
     placement: 'Calf',
   },
   {
@@ -192,6 +215,7 @@ export const FLASH: FlashPiece[] = [
     imageHeight: 1000,
     category: 'junji',
     featured: false,
+    style: 'blackwork',
     placement: 'Shoulder',
   },
 
@@ -205,6 +229,7 @@ export const FLASH: FlashPiece[] = [
     imageHeight: 1000,
     category: 'waifu',
     featured: true,
+    style: 'fine-line',
     placement: 'Thigh',
   },
   {
@@ -216,6 +241,7 @@ export const FLASH: FlashPiece[] = [
     imageHeight: 1000,
     category: 'waifu',
     featured: true,
+    style: 'fine-line',
     placement: 'Outer forearm',
   },
   {
@@ -227,6 +253,7 @@ export const FLASH: FlashPiece[] = [
     imageHeight: 1200,
     category: 'waifu',
     featured: false,
+    style: 'blackwork & fine-line',
     placement: 'Upper arm',
   },
   {
@@ -238,6 +265,7 @@ export const FLASH: FlashPiece[] = [
     imageHeight: 1000,
     category: 'waifu',
     featured: false,
+    style: 'blackwork',
     placement: 'Calf',
   },
   {
@@ -249,6 +277,7 @@ export const FLASH: FlashPiece[] = [
     imageHeight: 1000,
     category: 'waifu',
     featured: false,
+    style: 'fine-line',
     placement: 'Shin',
   },
 
@@ -262,6 +291,7 @@ export const FLASH: FlashPiece[] = [
     imageHeight: 1000,
     category: 'general',
     featured: false,
+    style: 'blackwork',
     placement: 'Forearm',
   },
   {
@@ -273,6 +303,7 @@ export const FLASH: FlashPiece[] = [
     imageHeight: 1000,
     category: 'general',
     featured: false,
+    style: 'blackwork',
     placement: 'Upper arm',
   },
   {
@@ -284,6 +315,7 @@ export const FLASH: FlashPiece[] = [
     imageHeight: 1000,
     category: 'general',
     featured: false,
+    style: 'blackwork & fine-line',
     placement: 'Thigh',
   },
   {
@@ -295,6 +327,7 @@ export const FLASH: FlashPiece[] = [
     imageHeight: 1200,
     category: 'general',
     featured: false,
+    style: 'blackwork',
     placement: 'Back',
   },
   {
@@ -306,6 +339,7 @@ export const FLASH: FlashPiece[] = [
     imageHeight: 800,
     category: 'general',
     featured: false,
+    style: 'blackwork',
     placement: 'Shoulder',
   },
 ];
@@ -325,6 +359,7 @@ const MAY_OCT_2025: FlashPiece[] = Array.from({ length: 52 }, (_, i) => {
     imageHeight: 1080,
     category: 'may-oct-2025' as WorkCategory,
     featured: n <= 6,
+    style: 'blackwork' as TattooStyle,
   };
 });
 
@@ -344,6 +379,7 @@ const OLD_DESIGNS: FlashPiece[] = Array.from({ length: 55 }, (_, i) => {
     imageHeight: 1080,
     category: 'old-designs' as WorkCategory,
     featured: false,
+    style: 'blackwork' as TattooStyle,
   };
 });
 
@@ -385,6 +421,7 @@ const BLADE_SERIES: FlashPiece[] = Array.from({ length: 19 }, (_, i) => {
     imageHeight: 1080,
     category: 'blade-series' as WorkCategory,
     featured: false,
+    style: 'blackwork' as TattooStyle,
   };
 });
 
@@ -403,6 +440,7 @@ const RAGNAROK_SERIES: FlashPiece[] = [
     imageHeight: 1080,
     category: 'ragnarok-series',
     featured: true,
+    style: 'blackwork',
   },
   {
     id: 'ragnarok-002',
@@ -413,6 +451,7 @@ const RAGNAROK_SERIES: FlashPiece[] = [
     imageHeight: 1080,
     category: 'ragnarok-series',
     featured: true,
+    style: 'blackwork',
   },
   {
     id: 'ragnarok-003',
@@ -423,6 +462,7 @@ const RAGNAROK_SERIES: FlashPiece[] = [
     imageHeight: 1080,
     category: 'ragnarok-series',
     featured: true,
+    style: 'blackwork',
   },
   {
     id: 'ragnarok-004',
@@ -433,6 +473,7 @@ const RAGNAROK_SERIES: FlashPiece[] = [
     imageHeight: 1080,
     category: 'ragnarok-series',
     featured: true,
+    style: 'blackwork',
   },
   {
     id: 'ragnarok-005',
@@ -443,6 +484,7 @@ const RAGNAROK_SERIES: FlashPiece[] = [
     imageHeight: 1080,
     category: 'ragnarok-series',
     featured: true,
+    style: 'blackwork & fine-line',
   },
   {
     id: 'ragnarok-006',
@@ -453,6 +495,7 @@ const RAGNAROK_SERIES: FlashPiece[] = [
     imageHeight: 1080,
     category: 'ragnarok-series',
     featured: true,
+    style: 'blackwork',
   },
 ];
 

@@ -13,6 +13,7 @@ const piece: FlashPiece = {
   imageHeight: 1080,
   category: 'ragnarok-series',
   featured: true,
+  style: 'blackwork',
   placement: 'Upper arm',
 };
 

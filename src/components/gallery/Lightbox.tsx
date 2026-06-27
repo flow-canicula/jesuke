@@ -3,7 +3,7 @@
 import { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import type { FlashPiece } from '@/content/work';
-import { CATEGORY_LABEL } from '@/content/work';
+import { CATEGORY_LABEL, STYLE_LABEL } from '@/content/work';
 
 type LightboxProps = {
   piece: FlashPiece;
@@ -112,12 +112,18 @@ export function Lightbox({ piece, basePath = '', onClose }: LightboxProps) {
               </span>
             </div>
 
-            {/* Right — placement + attribution */}
+            {/* Right — style + placement + attribution */}
             <div className="flex flex-col gap-1 items-end text-right">
+              <span
+                className="eyebrow"
+                style={{ fontSize: '0.7rem', color: 'var(--color-ink-100)', opacity: 0.45 }}
+              >
+                {STYLE_LABEL[piece.style]}
+              </span>
               {piece.placement && (
                 <span
                   className="eyebrow"
-                  style={{ fontSize: '0.7rem', color: 'var(--color-ink-100)', opacity: 0.45 }}
+                  style={{ fontSize: '0.65rem', color: 'var(--color-ink-100)', opacity: 0.28 }}
                 >
                   {piece.placement}
                 </span>

@@ -4,7 +4,7 @@ import { useState, useRef } from 'react';
 import Image from 'next/image';
 import { Lightbox } from './Lightbox';
 import type { FlashPiece } from '@/content/work';
-import { CATEGORY_LABEL } from '@/content/work';
+import { CATEGORY_LABEL, STYLE_LABEL } from '@/content/work';
 import { useReveal } from '@/lib/useReveal';
 
 type GalleryGridProps = {
@@ -87,21 +87,12 @@ export function GalleryGrid({ pieces, basePath = '', animate = false }: GalleryG
                     {CATEGORY_LABEL[piece.category]}
                   </span>
                 </div>
-                {piece.placement ? (
-                  <span
-                    className="eyebrow shrink-0"
-                    style={{ fontSize: '0.65rem', color: 'var(--color-ink-100)', opacity: 0.28 }}
-                  >
-                    {piece.placement}
-                  </span>
-                ) : (
-                  <span
-                    className="font-mono shrink-0"
-                    style={{ fontSize: '0.6rem', color: 'var(--color-ink-100)', opacity: 0.15 }}
-                  >
-                    —
-                  </span>
-                )}
+                <span
+                  className="eyebrow shrink-0"
+                  style={{ fontSize: '0.6rem', color: 'var(--color-ink-100)', opacity: 0.28 }}
+                >
+                  {STYLE_LABEL[piece.style]}
+                </span>
               </div>
             </button>
           </article>

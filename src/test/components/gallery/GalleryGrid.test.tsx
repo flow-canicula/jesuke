@@ -13,6 +13,7 @@ const mockPieces: FlashPiece[] = [
     imageHeight: 1000,
     category: 'healed',
     featured: true,
+    style: 'blackwork',
     placement: 'Outer forearm',
   },
   {
@@ -24,6 +25,7 @@ const mockPieces: FlashPiece[] = [
     imageHeight: 1000,
     category: 'healed',
     featured: false,
+    style: 'fine-line',
   },
 ];
 
@@ -48,14 +50,15 @@ describe('GalleryGrid', () => {
     expect(screen.getAllByText('Healed results').length).toBeGreaterThan(0);
   });
 
-  it('renders placement when available', () => {
+  it('renders style label for each piece', () => {
     render(<GalleryGrid pieces={mockPieces} />);
-    expect(screen.getByText('Outer forearm')).toBeInTheDocument();
+    expect(screen.getByText('Blackwork')).toBeInTheDocument();
+    expect(screen.getByText('Fine-line')).toBeInTheDocument();
   });
 
-  it('renders dash when placement is absent', () => {
+  it('does not render placement labels in the card strip', () => {
     render(<GalleryGrid pieces={mockPieces} />);
-    expect(screen.getByText('—')).toBeInTheDocument();
+    expect(screen.queryByText('Outer forearm')).not.toBeInTheDocument();
   });
 
   it('opens lightbox when a piece is clicked', () => {
